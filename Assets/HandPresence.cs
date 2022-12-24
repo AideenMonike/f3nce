@@ -5,6 +5,7 @@ using UnityEngine.XR;
 
 public class HandPresence : MonoBehaviour
 {
+    //i have committed :)
     // Start is called before the first frame update
     void Start()
     {
