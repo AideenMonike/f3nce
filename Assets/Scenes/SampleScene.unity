@@ -402,7 +402,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1949593303}
-  m_Father: {fileID: 1725982594}
+  m_Father: {fileID: 1045848416}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &541096547
@@ -1100,6 +1100,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
+  - {fileID: 541096546}
+  - {fileID: 1728657556}
   m_Father: {fileID: 1725982594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1390,17 +1392,17 @@ MonoBehaviour:
     vrTarget: {fileID: 963194228}
     rigTarget: {fileID: 600634164}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
-    trackingRotationOffset: {x: 0, y: 0, z: 0}
+    trackingRotationOffset: {x: 180, y: 90, z: 90}
   rightHand:
     vrTarget: {fileID: 1949593303}
-    rigTarget: {fileID: 458328557}
+    rigTarget: {fileID: 180018583}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
-    trackingRotationOffset: {x: 0, y: 0, z: 0}
+    trackingRotationOffset: {x: -180, y: -45, z: 0}
   leftHand:
     vrTarget: {fileID: 2038249431}
-    rigTarget: {fileID: 1137121969}
+    rigTarget: {fileID: 1992692225}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
-    trackingRotationOffset: {x: 0, y: 0, z: 0}
+    trackingRotationOffset: {x: -180, y: -90, z: 0}
   headConstraint: {fileID: 600634164}
   headBodyOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1363637760 stripped
@@ -1753,8 +1755,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1045848416}
-  - {fileID: 541096546}
-  - {fileID: 1728657556}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1782,12 +1782,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728657555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2038249431}
-  m_Father: {fileID: 1725982594}
+  m_Father: {fileID: 1045848416}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1728657557
