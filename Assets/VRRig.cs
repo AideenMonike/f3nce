@@ -9,6 +9,7 @@ public class VRMap
     public Transform rigTarget;
     public Vector3 trackingPositionOffset;
     public Vector3 trackingRotationOffset;
+  
 
     public void Map()
     {
@@ -26,6 +27,9 @@ public class VRRig : MonoBehaviour
 
     public Transform headConstraint;
     public Vector3 headBodyOffset;
+
+    public int turnSmoothness = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,10 +37,11 @@ public class VRRig : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.position = headConstraint.position + headBodyOffset;
-        transform.forward = Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized;
+        transform.forward = Vector3.Lerp(transform.forward,
+        Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized,Time.deltaTime * turnSmoothness);
 
         head.Map();
         rightHand.Map();

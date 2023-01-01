@@ -474,7 +474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566660951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1363637760}
@@ -512,7 +512,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ce04ea647d7129f479cb38f287b10d3d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1366,8 +1366,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320959627}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 061f95ca34a3e1e40b7e011fc5dd3647, type: 3}
+  m_Controller: {fileID: 9100000, guid: d7daea932062c124985b9c5f08562814, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1405,6 +1405,24 @@ MonoBehaviour:
     trackingRotationOffset: {x: -180, y: -90, z: 0}
   headConstraint: {fileID: 600634164}
   headBodyOffset: {x: 0, y: 0, z: 0}
+  turnSmoothness: 5
+--- !u!114 &1320959633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320959627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ad4175b9fcef242848338bef57107e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightFootPosWeight: 1
+  leftFootPosWeight: 1
+  rightFootRotWeight: 1
+  leftFootRotWeight: 1
+  footOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &1363637760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 1be237780011b72489728cb8ecef7cd6,
