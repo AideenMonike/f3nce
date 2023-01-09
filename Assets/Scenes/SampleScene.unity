@@ -1822,11 +1822,11 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719774890}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1719774909}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.1528388, y: 0.86411387, z: 0.5121198}
+  m_ConnectedAnchor: {x: -0.10046878, y: -0.000000055270988, z: -0.00000013634376}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1917,11 +1917,11 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719774889}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1719774911}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.0835394, y: 0.8925875, z: 0.4451815}
+  m_ConnectedAnchor: {x: -0.097913295, y: -0.0000012435765, z: -0.00000038403192}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2012,11 +2012,11 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719774888}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1719774913}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.0160027, y: 0.92033714, z: 0.37994573}
+  m_ConnectedAnchor: {x: -0.102443, y: 0.00000020519258, z: 0.00000017362336}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2107,11 +2107,11 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719774887}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1719774915}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.9453411, y: 0.94936913, z: 0.31169197}
+  m_ConnectedAnchor: {x: -0.09911292, y: 0.0000002747494, z: 0.00000031653403}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2202,11 +2202,11 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719774886}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1719774900}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.8769767, y: 0.9774581, z: 0.24565715}
+  m_ConnectedAnchor: {x: -0.099782646, y: 0.0000001104903, z: 0.00000014649162}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2297,11 +2297,11 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719774885}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1719774921}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.8081507, y: 1.0057375, z: 0.17917606}
+  m_ConnectedAnchor: {x: -0.10103403, y: 0.00000014342905, z: 0.00000010411563}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2614,11 +2614,11 @@ ConfigurableJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719774891}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 1719774907}
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.2215648, y: 0.8358757, z: 0.578504}
+  m_ConnectedAnchor: {x: -0.099637195, y: 0.00000012003306, z: 5.892333e-10}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
