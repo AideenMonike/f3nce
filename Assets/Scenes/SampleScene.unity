@@ -1812,9 +1812,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!153 &1719774893
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -2539,11 +2539,11 @@ ConfigurableJoint:
     damper: 1
   m_AngularYLimit:
     limit: 30
-    bounciness: 0
+    bounciness: 1
     contactDistance: 0
   m_AngularZLimit:
     limit: 30
-    bounciness: 0
+    bounciness: 1
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -2702,6 +2702,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &1719774904
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719774883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.09
+  m_Direction: 0
+  m_Center: {x: -0.03, y: 0, z: 0}
 --- !u!54 &1719774905
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2841,9 +2855,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!136 &1719774932
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2855,9 +2869,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!136 &1719774942
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2869,9 +2883,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!136 &1719774952
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2883,9 +2897,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!136 &1719774962
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2897,9 +2911,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!136 &1719774972
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2911,9 +2925,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!136 &1719774982
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2925,9 +2939,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.01
-  m_Height: 0.1
+  m_Height: 0.09
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.04, y: 0, z: 0}
 --- !u!137 &1719774992 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7008799454422747675, guid: 061f95ca34a3e1e40b7e011fc5dd3647,
