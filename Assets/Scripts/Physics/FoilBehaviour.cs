@@ -40,4 +40,5 @@ public class FoilBehaviour : MonoBehaviour
         SMRenderer.BakeMesh(FoilBakedMesh);
         gameObject.GetComponent<MeshCollider>().sharedMesh = FoilBakedMesh;
     }
+ 
 }
