@@ -6,20 +6,16 @@ using System.Timers;
 public class TargetBehaviours : MonoBehaviour
 {
     public GameObject target;
-    //private Rigidbody rb;
     public float disappearTimer;
     public float totalTimer;
     public Vector3 origin;
     public float spawnRadius;
-    private bool gameFinished;
+    private bool gameFinished = true;
     private bool targetHit;
     // Start is called before the first frame update
     void Start()
     {
-        //rb = GetComponent<Rigidbody>();
-        //StartCoroutine(TargetHit());
-        gameFinished = false;
-        StartCoroutine(Timer());
+
     }
 
     void OnCollisionEnter(Collision other)
@@ -29,53 +25,46 @@ public class TargetBehaviours : MonoBehaviour
             targetHit = true;
             if (gameFinished)
             {
-                Debug.Log("timer done");
-            }
-            else
-            {
-                
+                TeleportTarget(origin, spawnRadius);
+                StartCoroutine(GameTimer(totalTimer));
+                StartCoroutine(TargetTimer(disappearTimer));
             }
         }
     }
-    
-    private IEnumerator Timer()
+    private void TeleportTarget(Vector3 PO, float radius)
+    {
+        transform.position = PO + Random.insideUnitSphere * radius;
+    }
+    private IEnumerator GameTimer(float time)
+    {
+        while (time < 0)
+        {
+            time -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        gameFinished = false;
+    }
+    private IEnumerator TargetTimer(float time)
     {
         while (!gameFinished)
         {
-            totalTimer -= Time.deltaTime;
+            while (time > 0)
+            {
+                if (targetHit == true)
+                {
+                    time = disappearTimer;
+                    targetHit = false;
+                    TeleportTarget(origin, spawnRadius);
+                    Debug.Log("for reset");
+                }
+                yield return new WaitForEndOfFrame();
+                Debug.Log(time);
+                time -= Time.deltaTime;
+            }
+            //Debug.Log("a");
+            TeleportTarget(origin, spawnRadius);
+            time = disappearTimer;
             yield return new WaitForEndOfFrame();
         }
     }
-    /*
-    private IEnumerator TargetHit()
-    {
-        Debug.Log(Time.captureFramerate);
-        for (int i = 0; i <= Time.captureFramerate * disappearTimer; i++)
-        {
-            if (targetHit)
-            {
-                i = 0;
-                StartCoroutine(TargetSpawn());
-            }
-            else if (!targetHit && i == (Time.captureFramerate * disappearTimer))
-            {
-                StartCoroutine(TargetSpawn());
-                i = 0;
-            }
-        }
-        yield return null;
-    }
-    /*
-    private IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(disappearTimer);
-    }
-    
-    private IEnumerator TargetSpawn()
-    {
-        Debug.Log("A");
-        transform.position = origin + Random.insideUnitSphere * spawnRadius;
-        yield return null;
-    }
-    */
 }
