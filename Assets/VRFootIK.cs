@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,7 +31,7 @@ public class VRFootIK : MonoBehaviour
         if (hasHit)
         {
             animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, rightFootPosWeight);
-            Debug.Log("hit l33");
+            //Debug.Log("hit l33");
             animator.SetIKPosition(AvatarIKGoal.RightFoot, hit.point + footOffset);
 
             Quaternion rightFootRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, hit.normal), hit.normal);
@@ -41,7 +41,7 @@ public class VRFootIK : MonoBehaviour
         else
         {
             animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 0);
-            Debug.Log("hit l43");
+            //Debug.Log("hit l43");
         }
 
         

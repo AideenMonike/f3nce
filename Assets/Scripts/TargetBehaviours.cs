@@ -25,13 +25,14 @@ public class TargetBehaviours : MonoBehaviour
     public Text SavesText1;
     public Text SavesText2;
     public Text SavesText3;
-    private Text SaveHold;
+    private string SaveHold;
     [Range(0,3)]
     private int i = 0;
+    private Vector3 originalTargPos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalTargPos = transform.position;
     }
 
     void OnCollisionEnter(Collision other)
@@ -60,6 +61,7 @@ public class TargetBehaviours : MonoBehaviour
         ScoreText.text = "Score: " + Convert.ToString(score);
         timerText.text = Convert.ToString(minutes) + ":" + secondsText;        
     }
+
     private IEnumerator GameTimer(float time)
     {
         while (!timeFinished)
@@ -67,49 +69,7 @@ public class TargetBehaviours : MonoBehaviour
             //Debug.Log(rawScoreSaves[0]);
             if (time <= 0)
             {
-                Debug.Log("i: " + i);
-                time = 0;
                 timeFinished = true;
-                rawScoreSaves[i] = score;
-                OrderedScores = rawScoreSaves;
-                
-                
-                sorts.InsertSort(OrderedScores);
-                Debug.Log("rawscoresaves");
-                for (int j = 0; j < rawScoreSaves.Length; j++)
-                {
-                    Debug.Log(rawScoreSaves[j]);
-                }
-                /*
-                Debug.Log("Orderedscores");                
-                for (int i = 0; i < scores.Length; i++)
-                {
-                    Debug.Log(scores[i]);
-                }
-                */
-                for (int j = 0; j <= 2; j++)
-                {
-                    switch (j)
-                    {
-                        case 0:
-                            SaveHold = SavesText1;
-                            break;
-                        case 1:
-                            SaveHold = SavesText2;
-                            break;
-                        case 2:
-                            SaveHold = SavesText3;
-                            break;
-                    }
-                    SaveHold.text = Convert.ToString(OrderedScores[3 - j]);
-                }
-                
-                i++;
-                if (i >= 3)
-                {
-                    i = 3;
-                }
-
             }
             
             time -= Time.deltaTime;
@@ -127,12 +87,60 @@ public class TargetBehaviours : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+        if (timeFinished)
+        {
+            Debug.Log("timer line called");
+            transform.position = originalTargPos;
+            SortScore(score);
+        }
         
         //yield return null;
     }
+    void SortScore(int lastScore)
+    {
+        int g = 0;
+        Debug.Log("i: " + i);
+        timeFinished = true;
+        rawScoreSaves[g] = lastScore;
+        OrderedScores = sorts.InsertSort(rawScoreSaves);
+
+
+        /*     
+        for (int j = 0; j < rawScoreSaves.Length; j++)
+        {
+            Debug.Log(rawScoreSaves[j]);
+        }
+        */
+
+        for (int j = 0; j <= 2; j++)
+        {
+            SaveHold = Convert.ToString(OrderedScores[j]);
+            switch (j)
+            {
+               case 0:
+                   SavesText1.text = SaveHold;
+                   break;
+                case 1:
+                    SavesText2.text = SaveHold;
+                    break;
+                case 2:
+                    SavesText3.text = SaveHold;
+                    break;
+            }
+        }
+                
+        g++;
+        if (g >= 3)
+        {
+            g = 3;
+        }
+    }
     private void TeleportTarget(Vector3 PO, float radius)
     {
-        transform.position = PO + UnityEngine.Random.insideUnitSphere * radius;
+        if (!timeFinished)
+        {
+            transform.position = PO + UnityEngine.Random.insideUnitSphere * radius;
+        } 
     }
     private IEnumerator TargetTimer(float time)
     {
@@ -143,8 +151,9 @@ public class TargetBehaviours : MonoBehaviour
                 if (targetHit == true)
                 {
                     time = disappearTimer;
-                    targetHit = false;
                     TeleportTarget(origin, spawnRadius);
+                    targetHit = false;
+                    yield return new WaitForSecondsRealtime(0.25f);
                     //Debug.Log("for reset");
                 }
                 yield return new WaitForEndOfFrame();

@@ -12,7 +12,7 @@ public class sorts
             int j = i - 1;
             while (j >= 0 && spot < arr[j])
             {
-                arr[i] = arr[j];
+                arr[j+1] = arr[j];
                 j--;
             }
             arr[j + 1] = spot;
