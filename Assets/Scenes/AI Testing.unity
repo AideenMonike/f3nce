@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SK_Fencing_Foil_A-Pose (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 061f95ca34a3e1e40b7e011fc5dd3647,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d7daea932062c124985b9c5f08562814, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 061f95ca34a3e1e40b7e011fc5dd3647, type: 3}
 --- !u!1 &30388123 stripped
