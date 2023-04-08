@@ -280,8 +280,11 @@ namespace CandiceAIforGames.AI
         public bool attachKillCamera { get => attachKillCam; set => attachKillCam = value; }
         public bool isTitanic { get => isATitan; set => isATitan = value; }
         public GameObject InventoryDrop { get => inventoryDrop; set => inventoryDrop = value; }
-
+        private float distanceToMaintain;
+        private Vector3 startingPosition;
+        private Vector3 previousPosition;
         CandiceAIManager candice;
+
 
         #endregion
         // Start is called before the first frame update
@@ -304,6 +307,9 @@ namespace CandiceAIforGames.AI
 
             //New Animations initialization           
             InitializeAnimations();
+            //For Fencing behaviour: finds the original distance from targets
+            distanceToMaintain = Vector3.Distance(transform.position, MainTarget.transform.position);
+            startingPosition = transform.position;
         }
 
 
@@ -550,11 +556,16 @@ namespace CandiceAIforGames.AI
         public void Flee()
         {
 
-            Vector3 moveDirection = transform.position - MainTarget.transform.position;
+            Vector3 moveDirection = transform.position + MainTarget.transform.position;
 
             LookPoint = moveDirection;
             MovePoint = moveDirection;
 
+        }
+        public void Fence()
+        {
+            float distanceToTarget = Vector3.Distance(transform.position, MainTarget.transform.position);
+            transform.position = (transform.position - MainTarget.transform.position).normalized * distanceToMaintain + MainTarget.transform.position;
         }
         private void FindTarget(GameObject target)
         {

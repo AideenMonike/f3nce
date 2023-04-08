@@ -28,8 +28,10 @@ public class aiAnimation : MonoBehaviour
         Vector3 localModelSpeed = transform.InverseTransformDirection(modelSpeed);
         previousPos = aiModel.transform.position;
         
+        
+
         //Sets conditional boolean based upon the model's relative speed
         anim.SetBool("isMoving", localModelSpeed.magnitude > speedThreshold);
-        anim.SetFloat("direction", Mathf.Clamp(localModelSpeed.x, 0, 1));
-            }
+        anim.SetFloat("DirectionX", Mathf.Clamp(localModelSpeed.x, -1, 1));
+    }
 }

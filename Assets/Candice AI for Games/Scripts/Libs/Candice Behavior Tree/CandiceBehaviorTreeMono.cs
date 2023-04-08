@@ -14,6 +14,7 @@ namespace CandiceAIforGames.AI
         AgressiveAIRangedPatrol,
         Coward,
         Wander,
+        Fencer,
     }
     public class CandiceBehaviorTreeMono : MonoBehaviour
     {
@@ -36,6 +37,7 @@ namespace CandiceAIforGames.AI
 
         private CandiceBehaviorSequence wanderSequence;
         private CandiceBehaviorSequence fleeSequence;
+        private CandiceBehaviorSequence maintainDistance;
 
         private CandiceBehaviorAction rangeAttackNode;
         private CandiceBehaviorAction moveNode;
@@ -60,6 +62,7 @@ namespace CandiceAIforGames.AI
         CandiceBehaviorSelector enemyDetctedSelector;
         CandiceBehaviorAction fleeNode;
         CandiceBehaviorAction wanderNode;
+        CandiceBehaviorAction maintainDistanceNode;
         CandiceDefaultBehaviors paladinBehaviours;
 
         private TemporaryBehaviorPersist tmpbp;
@@ -100,6 +103,9 @@ namespace CandiceAIforGames.AI
                     break;
                 case SelectedBehaviorTree.Wander:
                     WanderAI();
+                    break;
+                case SelectedBehaviorTree.Fencer:
+                    FencerAI();
                     break;
             }
         }
@@ -247,7 +253,24 @@ namespace CandiceAIforGames.AI
             wanderSequence.SetNodes(new List<CandiceBehaviorNode> { wanderNode, AvoidObstaclesNode, moveNode });
             (rootNode as CandiceBehaviorSequence).SetNodes(new List<CandiceBehaviorNode> { wanderSequence });
         }
+        private void FencerAI()
+        {
+            ScanForObjectsNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.ScanForObjects, rootNode);
+            AvoidObstaclesNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.AvoidObstacles, rootNode);
+            CandicePathfindNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.CandicePathfind, rootNode);
+            canSeeEnemyNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.EnemyDetected, rootNode);
+            lookAtNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.LookAt, rootNode);
+            attackNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.AttackMelee, rootNode);
+            rangeAttackNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.AttackRange, rootNode);
+            moveNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.MoveForward, rootNode);
+            withinAttackRange = new CandiceBehaviorAction(CandiceDefaultBehaviors.WithinAttackRange, rootNode);
+            wanderNode = new CandiceBehaviorAction(CandiceDefaultBehaviors.Wander, rootNode);
 
+            maintainDistance = new CandiceBehaviorSequence();
+            maintainDistance.SetNodes(new List <CandiceBehaviorNode> {maintainDistanceNode, AvoidObstaclesNode, moveNode} );
+            (rootNode as CandiceBehaviorSequence).SetNodes(new List<CandiceBehaviorNode> {maintainDistance});
+            
+        }
     }
 }
 

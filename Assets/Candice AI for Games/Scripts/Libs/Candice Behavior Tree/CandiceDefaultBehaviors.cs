@@ -219,6 +219,12 @@ namespace CandiceAIforGames.AI
             agent.Wander();
             return CandiceBehaviorStates.SUCCESS;
         }
+        public static CandiceBehaviorStates Fence(CandiceBehaviorNode rootNode)
+        {
+            CandiceAIController agent = rootNode.aiController;
+            agent.Fence();
+            return CandiceBehaviorStates.SUCCESS;
+        }
         public static CandiceBehaviorStates WaypointPatrol(CandiceBehaviorNode rootNode)
         {
             CandiceAIController agent = rootNode.aiController;
