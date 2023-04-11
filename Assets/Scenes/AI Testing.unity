@@ -2248,8 +2248,6 @@ GameObject:
   - component: {fileID: 3583454665464850925}
   - component: {fileID: 3583454665464850924}
   - component: {fileID: 3583454665464850927}
-  - component: {fileID: 3583454665464850926}
-  - component: {fileID: 3583454665464850928}
   m_Layer: 0
   m_Name: SK_Fencing_Foil_A-Pose
   m_TagString: Untagged
@@ -2388,97 +2386,6 @@ MonoBehaviour:
   - {fileID: 7130130706680706483}
   - {fileID: 6348397230486077037}
   - {fileID: 2692393768203374465}
---- !u!114 &3583454665464850926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3583454665464850923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03293482103d62c4ab9d9b4b7595e1a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isATitan: 0
-  attachKillCam: 0
-  shakeData: {fileID: 0}
-  thisAgent: {fileID: 0}
-  atkDamage: 0
-  TemplateAnimator: {fileID: 0}
-  animSpeed: 1
-  inventoryDrop: {fileID: 0}
-  HealthBar: {fileID: 0}
-  hit: 0
-  dead: 0
-  thisComboDamagePerHit: 0
-  agentID: 0
-  maxHitPoints: 100
-  hitPoints: 100
-  halfHeight: 100
-  is3D: 1
-  mainCamera: {fileID: 0}
-  rig: {fileID: 0}
-  enableRagdoll: 0
-  templateAnimator: {fileID: 7787006812799248683}
-  enemies: []
-  allies: []
-  players: []
-  player: {fileID: 0}
-  mainTarget: {fileID: 0}
-  fleeTarget: {fileID: 0}
-  wanderTarget: {fileID: 0}
-  behaviorTree:
-    _name: 
-    nodes: []
-  detectionRadius: 10
-  detectionLines: 10
-  lineOfSight: 50
-  detectionHeight: 3
-  sensorType: 0
-  objectDetected: 0
-  playerDetected: 0
-  allyDetected: 0
-  enemyDetected: 0
-  objectTags:
-  - Player
-  enemyTags:
-  - Player
-  allyTags: []
-  perceptionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  obstacleAvoidaceDistance: 3
-  obstacleAvoidanceAOE: 0.5
-  lookPoint: {x: 0, y: 0, z: 0}
-  movePoint: {x: 0, y: 0, z: 0}
-  moveSpeed: 1
-  rotationSpeed: 0
-  isMoving: 0
-  enableHeadLook: 0
-  headLookTarget: {fileID: 0}
-  headLookIntensity: 1
-  waypoint: {fileID: 0}
-  _minPathUpdateTime: 0.2
-  _pathUpdateMoveThreshold: 0.5
-  _turnSpeed: 0
-  _turnDist: 0
-  _stoppingDist: 0
-  isCalculatingPath: 0
-  isFollowingPath: 0
-  sqrMoveThreshold: 0
-  pathIndex: 0
-  drawAgentPath: 0
-  attackTarget: {fileID: 0}
-  attackDamage: 3
-  attacksPerSecond: 1
-  attackRange: 1
-  damageAngle: 45
-  attackType: 0
-  projectile: {fileID: 0}
-  projectileSpawnPos: {fileID: 0}
-  hasAttackAnimation: 0
-  isAttacking: 0
 --- !u!136 &3583454665464850927
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2493,19 +2400,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 1.2, z: 0}
---- !u!114 &3583454665464850928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3583454665464850923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67462d62f34df041a3c2d7e649de6bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedBehaviorTree: 0
 --- !u!4 &3643013040974978986
 Transform:
   m_ObjectHideFlags: 0
