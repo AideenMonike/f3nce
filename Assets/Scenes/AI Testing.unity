@@ -935,7 +935,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1962268713}
-  - component: {fileID: 1962268712}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -943,22 +942,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1962268712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962268711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9821bcf281bd7de4dbb502db6c646805, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawGridGizmos: 0
-  drawAllAgentPaths: 1
-  grid: {fileID: 0}
-  agentCount: 0
 --- !u!4 &1962268713
 Transform:
   m_ObjectHideFlags: 0
@@ -2247,6 +2230,7 @@ GameObject:
   - component: {fileID: 7787006812799248683}
   - component: {fileID: 3583454665464850925}
   - component: {fileID: 3583454665464850924}
+  - component: {fileID: 3583454665464850926}
   - component: {fileID: 3583454665464850927}
   m_Layer: 0
   m_Name: SK_Fencing_Foil_A-Pose
@@ -2386,6 +2370,29 @@ MonoBehaviour:
   - {fileID: 7130130706680706483}
   - {fileID: 6348397230486077037}
   - {fileID: 2692393768203374465}
+--- !u!114 &3583454665464850926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3583454665464850923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd3da4ed03c58546aedb58f07e09f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 0}
+  player: {fileID: 659869855}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 256
+  distanceToMaintain: 0
+  attackRange: 0
+  playerInAttackRange: 0
 --- !u!136 &3583454665464850927
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2716,7 +2723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3583454665464850923}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.6, y: 0, z: -0.8800379}
+  m_LocalPosition: {x: -3.3, y: 1.14, z: -0.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3425583405719034841}
