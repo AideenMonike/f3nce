@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class aiAnimation : MonoBehaviour
 {
@@ -27,8 +25,6 @@ public class aiAnimation : MonoBehaviour
         //Gets the relative (local) speed of the model
         Vector3 localModelSpeed = transform.InverseTransformDirection(modelSpeed);
         previousPos = aiModel.transform.position;
-        
-        
 
         //Sets conditional boolean based upon the model's relative speed
         anim.SetBool("isMoving", localModelSpeed.magnitude > speedThreshold);
