@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 659869854}
   - component: {fileID: 659869853}
   - component: {fileID: 659869852}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2704,8 +2704,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  anim: {fileID: 0}
-  player: {fileID: 659869855}
+  anim: {fileID: 7787006812799248683}
+  player: {fileID: 659869851}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
@@ -2716,7 +2716,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   distanceToMaintain: 3.5
-  attackRange: 0
+  attackRange: 3
+  lungeRange: 1
+  attackCooldownTime: 3
 --- !u!54 &3583454665464850928
 Rigidbody:
   m_ObjectHideFlags: 0
