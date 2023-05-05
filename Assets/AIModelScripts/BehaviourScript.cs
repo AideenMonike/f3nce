@@ -1,12 +1,11 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class BehaviourScript : MonoBehaviour
 {
     //Navigation Mesh for obstacle avoidance and Animator component
-    public NavMeshAgent agent;
+    //public NavMeshAgent agent;
     public Animator anim;
     //Player Transform 
     public GameObject player;
@@ -25,18 +24,19 @@ public class BehaviourScript : MonoBehaviour
     // Variables determining how the AI will attack
     public float attackRange;
     public float lungeRange; // to be measured with dummy arm
-    private bool lungeLock = false;
     private bool alreadyAttacked = false;
     public float attackCooldownTime;
     private bool playerInAttackRange;
     private bool playerInLungeRange;
-
-    // Determines whether dummy is pushed out of bounds or close to it
-    void OnTriggerStay(Collider other)
-    {
-        
-    }
-    
+    [SerializeField] private bool _backing;
+    private bool lungeLock;
+    /* {
+        get { return _backing; }
+        set {
+            Debug.Log("lungeLock set to: " + value);
+            _backing = value;
+        }
+    } */ 
     //Determines if the dummy is no longer out of bounds
     void OnTriggerExit(Collider other)
     {
@@ -51,7 +51,7 @@ public class BehaviourScript : MonoBehaviour
     // Instantiates components and identifies player, and gets the dummy's previous position
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        //agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
     }
 
@@ -61,6 +61,7 @@ public class BehaviourScript : MonoBehaviour
         // Shoots a raycast to the ground and determines if the AI is still within bounds of the arena
         inBout = Physics.Raycast(transform.position + new Vector3 (0, 1, 0), Vector3.down, 5, whatIsBout);
 
+        StartCoroutine(LungeCheck());
         // Checks if player is within attack range, elsewise tries to maintain distance or move back to the middle of the arena
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         playerInLungeRange = Physics.CheckSphere(transform.position, lungeRange, whatIsPlayer);
@@ -69,11 +70,7 @@ public class BehaviourScript : MonoBehaviour
             // Need condition for parry, possibly based on position of foil?
             if (!alreadyAttacked) 
             {
-                if (playerInLungeRange && !lungeLock) {
-                    Lunge();
-                    Debug.Log("Lunge Called");
-                }
-                else if (playerInAttackRange && !playerInLungeRange) {
+                if (playerInAttackRange && !playerInLungeRange) {
                     ChaseIntoAttack();
                 }
             }
@@ -120,30 +117,27 @@ public class BehaviourScript : MonoBehaviour
         // This will also wait for the next updated frame to iterate once again
         // Returns boolean to true once the time limit has run out. This ensures that the model is away from any edges before it starts moving again.
         iTimerField -= Time.deltaTime;
-        new WaitForFixedUpdate();
         if (iTimerField <= 0) {
             returnToField = true;
         }
     }
     // Glorified move towards but speedy
     private void ChaseIntoAttack() {
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position - new Vector3 (0.5f, 0, 0), 3 * Time.deltaTime);
         transform.position = new Vector3 (transform.position.x, 0, transform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position - new Vector3 (0.5f, 0, 0), 3 * Time.deltaTime);
     }
     // need to wrap hitbox around animation component
     private void Lunge() {
-        anim.SetBool("withinLungeRange", true);
+        anim.SetTrigger("withinLungeRange");
         lungeLock = true;
         alreadyAttacked = true;
-        // Get animation state: if done start coroutine, if not wait
-        // can afford stopping THE ENTIRE SCRIPT (i think) if animation is still playing
         // find variable speed for animation
         StartCoroutine(AttackCooldown(attackCooldownTime));
     }
     private void Unlock() {
-        anim.SetBool("withinLungeRange", false);
+        //anim.SetTrigger("withinLungeRange");
+        Debug.LogAssertion("k");
         lungeLock = false;
-        Debug.Log("Unlock called");
     }
     // i have no fucking clue how to do this ((:
     private void Parry() {
@@ -154,9 +148,17 @@ public class BehaviourScript : MonoBehaviour
     {
         while (timer > 0) {
             timer -= Time.deltaTime;
-            Debug.Log(timer);
             yield return new WaitForEndOfFrame();
         }
         alreadyAttacked = false;
+    }
+    private IEnumerator LungeCheck()
+    {
+        while (true) {
+            if (playerInLungeRange && !alreadyAttacked) {
+                Lunge();
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

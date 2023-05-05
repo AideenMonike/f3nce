@@ -60,7 +60,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.8446602
+      - time: 0.5616438
         functionName: Unlock
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 8fd3da4ed03c58546aedb58f07e09f3c,
