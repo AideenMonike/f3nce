@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TargetBehaviours : MonoBehaviour
 {
     private sorts Sort = new sorts();
     private bool timeFinished = true;
-    public Text timerText;
+    public TextMeshProUGUI timerText;
     public float GameTime;
     private float seconds;
     private float minutes;
@@ -16,19 +17,20 @@ public class TargetBehaviours : MonoBehaviour
     public float disappearTimer;
     public Vector3 origin;
     public float spawnRadius;
-    public bool targetHit;
+    [NonSerialized] public bool targetHit;
     private int score;
     int[] rawScoreSaves = new int[4];
     private int[] OrderedScores = new int[4];
     private int[] scores = new int[4];
-    public Text ScoreText;
-    public Text SavesText1;
-    public Text SavesText2;
-    public Text SavesText3;
+    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI SavesText1;
+    public TextMeshProUGUI SavesText2;
+    public TextMeshProUGUI SavesText3;
     private string SaveHold;
     [Range(0,3)]
     private int i = 0;
     private Vector3 originalTargPos;
+
     // Start is called before the first frame update
     void Start()
     {

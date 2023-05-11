@@ -28,7 +28,7 @@ public class FoilTrackingTest : MonoBehaviour
         Debug.Log(foilVel);
         Debug.Log("---");
         */
-        Debug.Log(rb.velocity);
+        //Debug.Log(rb.velocity);
         
         rb.velocity = foilVel; 
     }
