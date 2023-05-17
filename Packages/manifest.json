@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.rikoo.ui-post-process": "https://github.com/ErikRikoo/Unity-UI-Post-Process.git",
     "com.unity.animation.rigging": "0.2.7-preview",
     "com.unity.collab-proxy": "1.14.18",
     "com.unity.ext.nunit": "1.0.6",
