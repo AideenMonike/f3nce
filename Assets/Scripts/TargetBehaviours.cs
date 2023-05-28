@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class TargetBehaviours : MonoBehaviour
 {
     private sorts Sort = new sorts();
+    private Vector3 foilVel;
+    private Vector3 prevFoilVel;
+    [SerializeField]
+    private Transform foilPos;
     private bool timeFinished = true;
     public Text timerText;
     public float GameTime;
@@ -18,27 +22,32 @@ public class TargetBehaviours : MonoBehaviour
     public float spawnRadius;
     public bool targetHit;
     private int score;
-    int[] rawScoreSaves = new int[4];
-    private int[] OrderedScores = new int[4];
     private int[] scores = new int[4];
     public Text ScoreText;
     public Text SavesText1;
     public Text SavesText2;
     public Text SavesText3;
     private string SaveHold;
-    [Range(0,3)]
-    private int i = 0;
+    [Range(0, 3)]
+    private int scoreIncrement = 0;
     private Vector3 originalTargPos;
+
     // Start is called before the first frame update
     void Start()
     {
+        prevFoilVel = foilPos.position;
         originalTargPos = transform.position;
+        for (int i = 0; i < scores.Length; i++)
+        {
+            scores[i] = 0;
+        }
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Foil")
+        if (other.gameObject.tag == "Foil" && foilVel.magnitude >= 15)
         {
+            StopCoroutine(TargetTimer(disappearTimer));
             targetHit = true;
             if (timeFinished)
             {
@@ -59,7 +68,15 @@ public class TargetBehaviours : MonoBehaviour
     private void Update()
     {
         ScoreText.text = "Score: " + Convert.ToString(score);
-        timerText.text = Convert.ToString(minutes) + ":" + secondsText;        
+        timerText.text = Convert.ToString(minutes) + ":" + secondsText;
+
+        if (timeFinished)
+        {
+            StopCoroutine(GameTimer(GameTime));
+        }
+
+        foilVel = (prevFoilVel - foilPos.position) / Time.deltaTime;
+        prevFoilVel = foilPos.position;
     }
 
     private IEnumerator GameTimer(float time)
@@ -89,37 +106,34 @@ public class TargetBehaviours : MonoBehaviour
         }
         if (timeFinished)
         {
-            Debug.Log("timer line called");
             transform.position = originalTargPos;
             SortScore(score);
         }
-        
-        //yield return null;
     }
+
     void SortScore(int lastScore)
     {
-        int g = 0;
-        Debug.Log("i: " + i);
-        timeFinished = true;
-        rawScoreSaves[g] = lastScore;
-        OrderedScores = sorts.InsertSort(rawScoreSaves);
+        scores[scoreIncrement] = lastScore;
+        scores = sorts.BubbleSort(scores);
 
-
-        /*     
-        for (int j = 0; j < rawScoreSaves.Length; j++)
+        scoreIncrement++;
+        if (scoreIncrement >= 3)
         {
-            Debug.Log(rawScoreSaves[j]);
+            scoreIncrement = 3;
         }
-        */
 
+        for (int i = 0; i < scores.Length; i++)
+        {
+            Debug.Log(scores[i]);
+        }
         for (int j = 0; j <= 2; j++)
         {
-            SaveHold = Convert.ToString(OrderedScores[j]);
+            SaveHold = Convert.ToString(scores[j]);
             switch (j)
             {
-               case 0:
-                   SavesText1.text = SaveHold;
-                   break;
+                case 0:
+                    SavesText1.text = SaveHold;
+                    break;
                 case 1:
                     SavesText2.text = SaveHold;
                     break;
@@ -128,13 +142,8 @@ public class TargetBehaviours : MonoBehaviour
                     break;
             }
         }
-                
-        g++;
-        if (g >= 3)
-        {
-            g = 3;
-        }
     }
+
     private void TeleportTarget(Vector3 PO, float radius)
     {
         if (!timeFinished)
@@ -142,9 +151,10 @@ public class TargetBehaviours : MonoBehaviour
             transform.position = PO + UnityEngine.Random.insideUnitSphere * radius;
         } 
     }
+
     private IEnumerator TargetTimer(float time)
     {
-        while (!timeFinished)
+        if (!timeFinished)
         {
             while (time > 0)
             {
