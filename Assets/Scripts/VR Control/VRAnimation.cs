@@ -31,7 +31,7 @@ public class VRAnimation : MonoBehaviour
         previousPos = vrRig.head.vrTarget.position;
 
         //Set Animator Values
-        float previousDirectionX = anim.GetFloat("DirectionX");;
+        float previousDirectionX = anim.GetFloat("DirectionX");
 
         anim.SetBool("isMoving", headsetLocalSpeed.magnitude > speedThreshold);
         anim.SetFloat("DirectionX", Mathf.Lerp(previousDirectionX, Mathf.Clamp(headsetLocalSpeed.x, -1, 1), smoothing));
