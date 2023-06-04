@@ -1025,8 +1025,10 @@ MonoBehaviour:
   _base: {fileID: 1031539931}
   midPoint: {x: 0, y: 0, z: 0}
   controlPoint: {x: 0, y: 0, z: 0}
-  smoothing: 0.1
+  prevControlPoint: {x: 0, y: 0, z: 0}
+  smoothing: 0.45
   tipVel: {x: 0, y: 0, z: 0}
+  baseVel: {x: 0, y: 0, z: 0}
   bones:
   - {fileID: 1928779642}
   - {fileID: 445461013}
@@ -1039,7 +1041,7 @@ MonoBehaviour:
   - {fileID: 356672833}
   - {fileID: 1777748646}
   - {fileID: 1164231847}
-  line: {fileID: 1031539938}
+  velThreshold: 0
 --- !u!54 &1031539933
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1123,14 +1125,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1031539931}
-  m_LocalRotation: {x: -0.006632918, y: -0.76667607, z: 0.009533937, w: 0.64192903}
-  m_LocalPosition: {x: -5.26, y: 1.19, z: -0.03}
+  m_LocalRotation: {x: 0.015351003, y: -0.7069401, z: 0.015351008, w: 0.7069402}
+  m_LocalPosition: {x: -0.69, y: 1.03, z: -0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1928779642}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0.35000002, y: -100.118004, z: 1.284}
+  m_LocalEulerAnglesHint: {x: 2.4880002, y: -90.00001, z: 0}
 --- !u!120 &1031539938
 LineRenderer:
   m_ObjectHideFlags: 0
