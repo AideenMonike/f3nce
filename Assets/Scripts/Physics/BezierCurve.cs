@@ -2,10 +2,13 @@
 
 public class BezierCurve : MonoBehaviour
 {
+    public BezierEquationsCalculations bez;
     // Vector3, Transforms and GameObjects variables. Information for the base, tip, control points and previous positions
     public GameObject tip, _base;
     [SerializeField] private Vector3 midPoint;    
     private Vector3 prevMidPoint;
+    [SerializeField] private Vector3 theoryTip;
+    private Vector3 localTip;
     [SerializeField] private Vector3 controlPoint, prevControlPoint;
     private Vector3 tipPrevPos, basePrevPos;
     // Float variables to control the position and speed of the control point
@@ -13,7 +16,9 @@ public class BezierCurve : MonoBehaviour
     [Range (0, 1)] public float smoothing;
     // Theoretical velocities of the tip
     [SerializeField] private Vector3 tipVel, baseVel;
-    private Vector3 prevTipVel;
+    private Vector3 prevTipVel, prevBaseVel;
+    [SerializeField] private Vector3 tipAccel, baseAccel;
+    private Vector3 prevBaseAccel, prevTipAccel;
     private bool noBendFoil;
     // Array of bones for the foil, positions calculated by the bezier curve and array-related variable;
     [SerializeField] private Transform[] bones;
@@ -42,28 +47,83 @@ public class BezierCurve : MonoBehaviour
         prevTipVel = tipVel;
         prevMidPoint = (_base.transform.position + tip.transform.position) / 2;
         prevControlPoint = controlPoint;
+
+        theoryTip = transform.InverseTransformPoint(tip.transform.position);
+
+        bez = new BezierEquationsCalculations();
     }
 
     public void Update()
     {
         CalcPointVelocities();
         CalcControlPoint();
-        noBendFoil = FloatValueCloseEnough(tipVel.magnitude, baseVel.magnitude, 5f);
+        TipInertia();
+
         SortPoints();
+
+        SetPrevMotionValues();
     }
     
+    private void SetPrevMotionValues()
+    {
+        // Previous Position variables set
+        tipPrevPos = tip.transform.position;
+        prevTipVel = tipVel;
+        basePrevPos = _base.transform.position;
+        prevBaseVel = baseVel;
+    }
+
     // Calculates theoretical velocities using the equation v = s/t, where s is the displacement and t is time.
     // ALso calculates the control point's position using lerpMult (lerp multiplier).
     private void CalcPointVelocities()
     {
-        //lerpMult = 0;
+        // Velocity Calculations
         tipVel = (tip.transform.position - tipPrevPos) / Time.deltaTime;
         baseVel = (_base.transform.position - basePrevPos) / Time.deltaTime;
         lerpMult = Mathf.Abs(tipVel.magnitude) / 100;
+    }
 
-        tipPrevPos = tip.transform.position;
-        prevTipVel = tipVel;
-        basePrevPos = _base.transform.position;
+    private void TipInertia()
+    {
+        // Acceleration Calculations
+        tipAccel = (tip.transform.position - tipPrevPos) / Mathf.Pow(Time.deltaTime, 2);
+        baseAccel =  (_base.transform.position - basePrevPos) / Mathf.Pow(Time.deltaTime, 2);
+        // Determine direction of tip by acceleration(?) - sudden change in accel and can scalar multiply it by -1
+        // Change time that tip 
+        if (!(!noBendFoil && tipVel.magnitude >= 20f))
+        {
+            noBendFoil = true;
+        }
+        else if (tipAccel.magnitude > 5 * prevTipAccel.magnitude || (!noBendFoil && tipVel.magnitude >= 20f))
+        {
+            noBendFoil = false;
+            tip.transform.position = Vector3.LerpUnclamped(tip.transform.position, tipPrevPos, tipVel.magnitude);
+            localTip = transform.InverseTransformPoint(tip.transform.position);
+            Debug.Log(theoryTip);
+            Debug.Log(localTip);
+            
+            float mult = LocalZMultiplier(theoryTip, localTip);
+            Debug.Log(mult);
+            localTip.z *= mult;
+            tip.transform.position = Vector3.Lerp(tip.transform.position, transform.TransformPoint(localTip), smoothing);
+        }
+        
+        prevTipAccel = tipAccel;
+        prevBaseAccel = baseAccel;
+    }
+
+    private float LocalZMultiplier(Vector3 statA, Vector3 b)
+    {
+        float bZ = Mathf.Pow(b.z, 2);
+        float bX = Mathf.Pow(b.x, 2);
+        float bY = Mathf.Pow(b.y, 2);
+
+        float multiplier = (Mathf.Pow(statA.magnitude, 2) - bX - bY) / bZ;
+        if (Mathf.Approximately(statA.magnitude, Mathf.Sqrt(bX + bY + (multiplier * bZ) )) )
+        {
+            return multiplier;
+        }
+        else return 1f;
     }
 
     // Need to lock midpoint/control point when moving along foil axis
@@ -76,9 +136,10 @@ public class BezierCurve : MonoBehaviour
     private void CalcControlPoint()
     {
         midPoint = (_base.transform.position + tip.transform.position) / 2;
-        controlPoint = Vector3.LerpUnclamped(midPoint, prevMidPoint, lerpMult);
-        controlPoint = Vector3.Lerp(prevControlPoint, Vector3.Project(midPoint, controlPoint), smoothing);
-        
+        /* controlPoint = Vector3.LerpUnclamped(midPoint, prevMidPoint, lerpMult);
+        controlPoint = Vector3.Lerp(prevControlPoint, Vector3.Project(midPoint, controlPoint), smoothing); */
+        controlPoint = Vector3.Lerp(prevMidPoint, midPoint, smoothing);
+
         prevMidPoint = midPoint;
         prevControlPoint = controlPoint;
     }
@@ -91,8 +152,8 @@ public class BezierCurve : MonoBehaviour
         {
             float t = i / (float)boneCount;
             // IF ELSE FOR LINEAR OR QUADRATIC
-            curvePositions[i - 1] = CalculateBezierCurvePoint(t, _base.transform.position, tip.transform.position, controlPoint);
-            linePositions[i - 1] = CalculateBezierLinePoint(t, _base.transform.position, tip.transform.position);
+            curvePositions[i - 1] = bez.CalculateBezierCurvePoint(t, _base.transform.position, tip.transform.position, controlPoint);
+            //linePositions[i - 1] = bez.CalculateBezierLinePoint(t, _base.transform.position, tip.transform.position);
         }
     
         for (int i = 0; i < curvePositions.Length; i++)
@@ -104,31 +165,4 @@ public class BezierCurve : MonoBehaviour
     // Calculates positions along a curve using the quadratic bezier curve equation. Variable t is clamped within 0 to 1.
     // Alternatively, a cubic bezier curve can be used, but that would necessitate another control point, which for this
     // feature is unnecessary.
-    private Vector3 CalculateBezierCurvePoint(float t, Vector3 point1, Vector3 point2, Vector3 midP)
-    {
-        float tt = t * t;  
-        float u = 1 - t;
-        float uu = u * u;
-        float _2ut = 2 * u * t;
-
-        return ((point1 * uu) + (_2ut * midP) + (tt * point2));
-    }
-
-    private Vector3 CalculateBezierLinePoint(float t, Vector3 point1, Vector3 point2)
-    {
-        float u = 1 - t;
-
-        return (u * point1) + t * point2;
-    }
-
-    public static bool FloatValueCloseEnough(float a, float b, float maxValueApart)
-    {
-        if ((a - b) <= maxValueApart) return true;
-        else return false;
-    }
-
-    /* public static bool Vector3CloseEnough(Vector3 a, Vector3 b, Vector3 maxValueApart)
-    {
-        if ((a - b) <= maxValueApart) return true;
-    } */
 }
