@@ -1,11 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class VRFootIK : MonoBehaviour
 {
-    //Setting variables. animator controls the animator component, while the separate floats are limited in value from 0-1,
-    //holding values that determine to what extent the Inverse Kinematics changes apply.
     private Animator animator;
     [Range(0,1)]
     public float rightFootPosWeight = 1;
@@ -17,7 +15,6 @@ public class VRFootIK : MonoBehaviour
     public float leftFootRotWeight = 1;
 
     public Vector3 footOffset;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,18 +24,14 @@ public class VRFootIK : MonoBehaviour
     // Update is called once per frame
     private void OnAnimatorIK(int layerIndex)
     {
-        /*
-            The following is under the method "OnAnimatorIK", which sets the Inverse Kinematics animations. 
-            It uses a raycast to measure where each individual foot is relative to the ground, and transforms
-            the feet to accommodate for changes in the environment. 
-        */
         Vector3 rightFootPos = animator.GetIKPosition(AvatarIKGoal.RightFoot);
         RaycastHit hit;
-        bool hasHit = Physics.Raycast(rightFootPos + Vector3.up, Vector3.down, out hit);
 
+        bool hasHit = Physics.Raycast(rightFootPos + Vector3.up, Vector3.down, out hit);
         if (hasHit)
         {
             animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, rightFootPosWeight);
+            //Debug.Log("hit l33");
             animator.SetIKPosition(AvatarIKGoal.RightFoot, hit.point + footOffset);
 
             Quaternion rightFootRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, hit.normal), hit.normal);
@@ -48,6 +41,7 @@ public class VRFootIK : MonoBehaviour
         else
         {
             animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 0);
+            //Debug.Log("hit l43");
         }
 
         
