@@ -92,7 +92,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
+  m_Name: Walking Cycles
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 5271587901719848412, guid: aa3fe86674f368744abeeb26b80357f4,
