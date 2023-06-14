@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TargetBehaviours : MonoBehaviour
 {
@@ -12,21 +13,17 @@ public class TargetBehaviours : MonoBehaviour
     [SerializeField]
     private Transform foilPos;
     private bool timeFinished = true;
-    public Text timerText;
+    public TextMeshProUGUI timerText;
     public float GameTime;
-    private float seconds;
-    private float minutes;
-    private string secondsText;
+    private float seconds, minutes;
+    private string secondsText = "00";
     public float disappearTimer;
     public Vector3 origin;
     public float spawnRadius;
     public bool targetHit;
     private int score;
     private int[] scores = new int[4];
-    public Text ScoreText;
-    public Text SavesText1;
-    public Text SavesText2;
-    public Text SavesText3;
+    public TextMeshProUGUI ScoreText, SavesText1, SavesText2, SavesText3;
     private string SaveHold;
     [Range(0, 3)]
     private int scoreIncrement = 0;
@@ -45,9 +42,8 @@ public class TargetBehaviours : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Foil" && foilVel.magnitude >= 15)
+        if (other.gameObject.tag == "Foil"  && foilVel.magnitude >= 5)
         {
-            StopCoroutine(TargetTimer(disappearTimer));
             targetHit = true;
             if (timeFinished)
             {
@@ -62,6 +58,13 @@ public class TargetBehaviours : MonoBehaviour
             {
                 score++;
             }
+        }
+    }
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Foil")
+        {
+            targetHit = false;
         }
     }
 
