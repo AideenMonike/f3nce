@@ -10,8 +10,7 @@ public class TargetBehaviours : MonoBehaviour
     private sorts Sort = new sorts();
     private Vector3 foilVel;
     private Vector3 prevFoilVel;
-    [SerializeField]
-    private Transform foilPos;
+    [SerializeField] private Transform foilPos;
     private bool timeFinished = true;
     public TextMeshProUGUI timerText;
     public float GameTime;

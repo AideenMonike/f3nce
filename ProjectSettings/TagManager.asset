@@ -7,6 +7,7 @@ TagManager:
   - Foil
   - Right Hand
   - Left Hand
+  - FoilTip
   layers:
   - Default
   - TransparentFX
