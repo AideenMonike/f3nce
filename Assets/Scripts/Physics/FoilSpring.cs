@@ -1,26 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class springtest : MonoBehaviour
+public class FoilSpring : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject tip, _base, joint;
     private Vector3 tipPrevPos, basePrevPos;
-    private Vector3 baseVel;
-    private Vector3 basePrevVel, basePrevAccel;
+    private Vector3 tipOrigin, baseOrigin, jointOrigin;
     public float springStrength, damperStrength, flexibility;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = joint.GetComponent<Rigidbody>();
-        Debug.Log("up " + Vector3.up);
-        Debug.Log("tip " + tip.transform.up);
-        Debug.Log("base " + _base.transform.up);
+        Debug.Log("right " + Vector3.right);
+        Debug.Log("tip " + tip.transform.right);
+        Debug.Log("base " + _base.transform.right);
         tipPrevPos = tip.transform.position;
-        basePrevVel = Vector3.zero;
-        basePrevPos = _base.transform.position;
+        
+        
+        tipOrigin = transform.InverseTransformPoint(tip.transform.position);
+        baseOrigin = transform.InverseTransformPoint(_base.transform.position);
+        jointOrigin = transform.InverseTransformPoint(joint.transform.position);
+        Debug.Log($"this is base origin {baseOrigin}");
     }
 
     // Update is called once per frame
@@ -33,11 +34,11 @@ public class springtest : MonoBehaviour
 
     private void PseudoSprings()
     {
-        Debug.Log("tip up " + tip.transform.up);
-        Debug.Log("base up "+ _base.transform.up);
-        Debug.Log("angular vel "+ -rb.velocity);
+        /* Debug.Log("tip right " + tip.transform.right);
+        Debug.Log("base right "+ _base.transform.right);
+        Debug.Log("angular vel "+ -rb.velocity); */
         
-        Vector3 springTorque = springStrength * Vector3.Cross(tip.transform.up, _base.transform.up);
+        Vector3 springTorque = springStrength * Vector3.Cross(tip.transform.right, _base.transform.right);
         Vector3 dampTorque = damperStrength * -rb.angularVelocity;
         rb.AddTorque(springTorque + dampTorque, ForceMode.Acceleration);    
     }
@@ -45,14 +46,15 @@ public class springtest : MonoBehaviour
     private void LockJoint()
     {
         Vector3 LocalJoint = transform.InverseTransformPoint(joint.transform.position);
-        LocalJoint = new Vector3 (0, 1, 0);
+        // LocalJoint = new Vector3 (0, 1, 0);
+        LocalJoint = new Vector3 (-0.1f, 0, 0);
         joint.transform.position = transform.TransformPoint(LocalJoint);
     }
 
-    void ApplyRotate()
+    private void ApplyRotate()
     {
         Vector3 tipDisplacement = tip.transform.position - tipPrevPos;
-        Vector3 movementTorque = flexibility * Vector3.Cross(tipDisplacement, tip.transform.up);
+        Vector3 movementTorque = flexibility * Vector3.Cross(tipDisplacement, tip.transform.right);
         rb.AddTorque(movementTorque, ForceMode.Impulse);
 
         tipPrevPos = tip.transform.position;   
