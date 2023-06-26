@@ -169,6 +169,6 @@ public class TargetReact : MonoBehaviour
     {
         // need a way to determine how to not teleport onto the foil
         // also maybe a way to restrict domain
-        obj.transform.position = origin + (1.5f * Rand.insideUnitSphere);
+        obj.transform.position = origin + (0.3f * Rand.insideUnitSphere);
     }
 }
