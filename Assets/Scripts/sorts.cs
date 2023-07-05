@@ -4,19 +4,51 @@ using UnityEngine;
 
 public class sorts
 {
-    public static int[] InsertSort(int[] arr)
+    public static int[] BubbleSort(int[] arr)
     {
-        for (int i = 0; i < arr.Length; i++)
+        bool swapped = true;
+        while (swapped)
         {
-            int spot = arr[i];
-            int j = i - 1;
-            while (j >= 0 && spot < arr[j])
+            swapped = false;
+            for (int j = 0; j < arr.Length - 1; j++)
             {
-                arr[i] = arr[j];
-                j--;
+                if (arr[j] < arr[j+1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    swapped = true;
+                }
             }
-            arr[j + 1] = spot;
         }
         return arr;
+    }
+
+    public static string ScoreCalc(float[] scores, float size, int misses)
+    {
+        float average = AverageCalc(scores);
+
+        float sizeMultiplier = size / 0.5f;
+        float rawScore = ((10 / Mathf.Pow(average, 2)) * sizeMultiplier) - misses;
+        int finScore = Mathf.RoundToInt(rawScore);
+
+        return finScore.ToString();
+    }
+
+    public static float AverageCalc(float[] scores)
+    {
+        float average = 0;
+        for (int i = 0; i < scores.Length; i++)
+        {
+            average = average + scores[i];
+        }
+        for (int i = 0; i < scores.Length; i++)
+        {
+            // Debug.Log($"pos {i} : {scores[i]}");
+        }
+        // Debug.Log($"length {scores.Length}");
+        average = average / scores.Length;
+
+        return average;
     }
 }
