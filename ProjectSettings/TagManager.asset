@@ -8,6 +8,7 @@ TagManager:
   - Right Hand
   - Left Hand
   - FoilTip
+  - Sandbox Objects
   layers:
   - Default
   - TransparentFX
