@@ -2,29 +2,24 @@
 
 public class FoilSpring : MonoBehaviour
 {
+    // Variables needed are: 
+    // Rigidbody component for physics stuff
+    // The gameobjects themselves but more importantly they're transform components
+    // The tip's previous position to make it flexy
+    // Stuff to control how the foil bends
     public Rigidbody rb;
     public GameObject tip, _base, joint;
-    private Vector3 tipPrevPos, basePrevPos;
-    private Vector3 tipOrigin, baseOrigin, jointOrigin;
+    private Vector3 tipPrevPos;
     public float springStrength, damperStrength, flexibility;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update, and sets up the variables before runtime
     void Start()
     {
         rb = joint.GetComponent<Rigidbody>();
-        Debug.Log("right " + Vector3.right);
-        Debug.Log("tip " + tip.transform.right);
-        Debug.Log("base " + _base.transform.right);
         tipPrevPos = tip.transform.position;
-        
-        
-        tipOrigin = transform.InverseTransformPoint(tip.transform.position);
-        baseOrigin = transform.InverseTransformPoint(_base.transform.position);
-        jointOrigin = transform.InverseTransformPoint(joint.transform.position);
-        Debug.Log($"this is base origin {baseOrigin}");
     }
 
-    // Update is called once per frame
+    // Update is called once per frame, when physics is calculated. Applies the following methods in order to get the spring to rotate
     void FixedUpdate()
     {
         ApplyRotate();
@@ -32,25 +27,25 @@ public class FoilSpring : MonoBehaviour
         LockJoint();
     }
 
+    // The name derived from the fact that it seems like a 'fake' spring joint from unity
+    // This essentially uses the cross product to find the torque perpendicular to where the bend is
+    // then adds damper strength based how fast the joint is spinning
     private void PseudoSprings()
-    {
-        /* Debug.Log("tip right " + tip.transform.right);
-        Debug.Log("base right "+ _base.transform.right);
-        Debug.Log("angular vel "+ -rb.velocity); */
-        
+    {        
         Vector3 springTorque = springStrength * Vector3.Cross(tip.transform.right, _base.transform.right);
         Vector3 dampTorque = damperStrength * -rb.angularVelocity;
         rb.AddTorque(springTorque + dampTorque, ForceMode.Acceleration);    
     }
 
+    // In theory the rigidbody component can lock the position relative to the parent, but this is for safe measure
     private void LockJoint()
     {
         Vector3 LocalJoint = transform.InverseTransformPoint(joint.transform.position);
-        // LocalJoint = new Vector3 (0, 1, 0);
         LocalJoint = new Vector3 (-0.1f, 0, 0);
         joint.transform.position = transform.TransformPoint(LocalJoint);
     }
 
+    // Uses similar logic to the spring, using cross product to move based on the displacement of the foil tip
     private void ApplyRotate()
     {
         Vector3 tipDisplacement = tip.transform.position - tipPrevPos;

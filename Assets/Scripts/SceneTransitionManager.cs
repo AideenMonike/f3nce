@@ -17,9 +17,10 @@ public class SceneTransitionManager : MonoBehaviour
         fadeScreen.FadeOut();
         yield return new WaitForSeconds(fadeScreen.fadeDuration); 
 
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Additive);
-        yield return null;
+        SceneManager.LoadScene(sceneIndex);
+        
+        /* yield return null;
         SceneManager.UnloadSceneAsync(current);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIndex));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIndex)); */
     }
 }

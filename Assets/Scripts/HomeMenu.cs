@@ -26,7 +26,10 @@ public class HomeMenu : MonoBehaviour
 
     public void SwapHands()
     {
-
+        int hand = PlayerPrefs.GetInt("Main Hand");
+        hand = Mathf.Abs(PlayerPrefs.GetInt("Main Hand") - 1);
+        PlayerPrefs.SetInt("Main Hand", hand);
+        Debug.Log(PlayerPrefs.GetInt("Main Hand"));
     }
     public void CalibrateHeight()
     {
