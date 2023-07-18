@@ -22,6 +22,7 @@ public class FoilSpring : MonoBehaviour
     // Update is called once per frame, when physics is calculated. Applies the following methods in order to get the spring to rotate
     void FixedUpdate()
     {
+        flexibility = PlayerPrefs.GetFloat("FlexLevel");
         ApplyRotate();
         PseudoSprings();
         LockJoint();

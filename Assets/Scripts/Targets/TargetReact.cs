@@ -1,18 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.UIElements;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Audio;
 using Rand = UnityEngine.Random;
 
 public class TargetReact : MonoBehaviour
 {
-    // Class for sorting highest scores. Contains a bubble sort
-    sorts bsort = new sorts();
-    public GameObject target, missZone, foil;
+    public GameObject target, missZone;
     // Point of Origin that the target teleports around and returns to
-    private Vector3 origin, targetSize, defTargetSize, missZoneSize;
+    private Vector3 origin, targetSize, defTargetSize;
     [Range(1, 12)] public int targetTries;
     private float[] timeScores;
     public TextMeshProUGUI Score, AvgReactTime, Misses;
@@ -23,7 +19,8 @@ public class TargetReact : MonoBehaviour
     private int misses;
     public bool foilReset;
 
-    public GameObject returnLine/* , completeScreen */;
+    public GameObject returnLine;
+    public AudioSource hitSound;
 
     // Start is called before the first frame update
     // Sets origin of the target
@@ -97,6 +94,7 @@ public class TargetReact : MonoBehaviour
             else
             {
                 targetHit = true;
+                
             }
         }
     }
@@ -179,20 +177,11 @@ public class TargetReact : MonoBehaviour
             }
 
             timeScores[i] = timeToHit;
-            if (i > 0)
-            { 
-                Debug.Log($"at position {i-1}, timeScores is {timeScores[i-1]}");
-            }
-            Debug.Log($"at position {i}, timeScores is {timeScores[i]}");
             missWindow = false;
             i++;
         }
         //completeScreen.SetActive(true);
         target.transform.localScale = Vector3.zero;
-        for (int j = 0; j < timeScores.Length; j++)
-        {   
-            Debug.Log($"pos {j}:{timeScores[j]}");
-        }
 
         float slideVal = targetSize.x / defTargetSize.x;
         Score.text = sorts.ScoreCalc(timeScores, slideVal, misses);

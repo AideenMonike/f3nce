@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class HomeMenu : MonoBehaviour
 {
     public GameObject homePage, settingsPage;
     public SceneTransitionManager sceneFade;
+    public AudioMixer mixer;
 
     public void PlayTargets()
     {
@@ -43,14 +44,16 @@ public class HomeMenu : MonoBehaviour
 
     public void MusicVol(float num)
     {
-
+        PlayerPrefs.SetFloat("Music Volume", num);
+        mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("Music Volume"));
     }
     public void FXVol(float num)
     {
-
+        PlayerPrefs.SetFloat("FX Volume", num);
+        mixer.SetFloat("FXVol", PlayerPrefs.GetFloat("FX Volume"));
     }
     public void Flex(float num)
     {
-
+        PlayerPrefs.SetFloat("FlexLevel", num);
     }
 }

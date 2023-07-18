@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class SwapHands : MonoBehaviour
 {
-    public GameObject LFoil, RFoil;
+    public GameObject LFoil, RFoil, LControl, RControl;
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerPrefs.GetInt("Main Hand") == 1)
-        {
-            Debug.Log("Yes");
-            LFoil.SetActive(true);
-            RFoil.SetActive(false);
-        }
-        else
-        {
-            LFoil.SetActive(false);
-            RFoil.SetActive(true);
-        }
+        LFoil.SetActive(PlayerPrefs.GetInt("Main Hand") == 1);
+        RControl.SetActive(PlayerPrefs.GetInt("Main Hand") == 1);
+        RFoil.SetActive(PlayerPrefs.GetInt("Main Hand") == 0);
+        LControl.SetActive(PlayerPrefs.GetInt("Main Hand") == 0);
     }
 }
