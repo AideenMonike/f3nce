@@ -1,12 +1,32 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class HomeMenu : MonoBehaviour
 {
     public GameObject homePage, settingsPage;
     public SceneTransitionManager sceneFade;
     public AudioMixer mixer;
+    public Slider flex, maVol, muVol, fVol;
 
+    void Update()
+    {
+        SetAudio();
+        SetSliderValues();
+    }
+    private void SetAudio()
+    {
+        mixer.SetFloat("MasterVol", PlayerPrefs.GetFloat("Master Volume"));
+        mixer.SetFloat("FXVol", PlayerPrefs.GetFloat("FX Volume"));
+        mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("Music Volume"));
+    }
+    private void SetSliderValues()
+    {
+        flex.value = PlayerPrefs.GetFloat("FlexLevel");
+        maVol.value = PlayerPrefs.GetFloat("Master Volume");
+        muVol.value = PlayerPrefs.GetFloat("Music Volume");
+        fVol.value = PlayerPrefs.GetFloat("FX Volume");
+    }
     public void PlayTargets()
     {
         sceneFade.GoToScene(1);
@@ -42,15 +62,18 @@ public class HomeMenu : MonoBehaviour
         homePage.SetActive(true);
     }
 
+    public void MasterVol(float num)
+    {
+        PlayerPrefs.SetFloat("Master Volume", num);
+    }
+
     public void MusicVol(float num)
     {
         PlayerPrefs.SetFloat("Music Volume", num);
-        mixer.SetFloat("MusicVol", PlayerPrefs.GetFloat("Music Volume"));
     }
     public void FXVol(float num)
     {
         PlayerPrefs.SetFloat("FX Volume", num);
-        mixer.SetFloat("FXVol", PlayerPrefs.GetFloat("FX Volume"));
     }
     public void Flex(float num)
     {

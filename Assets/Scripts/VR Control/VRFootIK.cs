@@ -48,7 +48,7 @@ public class VRFootIK : MonoBehaviour
         Vector3 leftFootPos = animator.GetIKPosition(AvatarIKGoal.LeftFoot);
         bool hasHitL = Physics.Raycast(leftFootPos + Vector3.up, Vector3.down, out hit);
 
-        if (hasHit)
+        if (hasHitL)
         {
             animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, leftFootPosWeight);
             animator.SetIKPosition(AvatarIKGoal.LeftFoot, hit.point + footOffset);
