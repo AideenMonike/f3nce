@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Audio;
 using Rand = UnityEngine.Random;
 
 public class PlayFoilAudio : MonoBehaviour
@@ -7,9 +6,14 @@ public class PlayFoilAudio : MonoBehaviour
     public AudioClip[] foilSounds;
     public AudioSource foil;
 
-    public void PlaySound()
+    void OnCollisionEnter(Collision other)
     {
-        int swap = Rand.Range(0, 2);
-        foil.PlayOneShot(foilSounds[swap]);
+        Debug.Log("hit");
+        if (!other.gameObject.CompareTag("Foil"))
+        {
+            int swap = Rand.Range(0, 2);
+            foil.PlayOneShot(foilSounds[swap]);
+            Debug.Log("hit");
+        }
     }
 }

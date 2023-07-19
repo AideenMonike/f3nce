@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 37112342}
   - component: {fileID: 37112344}
   - component: {fileID: 37112343}
+  - component: {fileID: 37112345}
   m_Layer: 8
   m_Name: joint5.5
   m_TagString: Foil
@@ -325,6 +326,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &37112345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37112341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &52777156
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 99702677}
   - component: {fileID: 99702678}
+  - component: {fileID: 99702679}
   m_Layer: 8
   m_Name: RFoil
   m_TagString: Foil
@@ -501,6 +520,103 @@ MonoBehaviour:
   - {fileID: 1191257929}
   - {fileID: 930395121}
   - {fileID: 431771572}
+--- !u!82 &99702679
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99702676}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6963898115639030758, guid: b4aa193610d7ff849973b5e1fc5e54ee,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &109807278
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 109807279}
+  - component: {fileID: 109807280}
   m_Layer: 8
   m_Name: LFoil
   m_TagString: Foil
@@ -533,6 +650,103 @@ Transform:
   m_Father: {fileID: 1728657556}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!82 &109807280
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109807278}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6963898115639030758, guid: b4aa193610d7ff849973b5e1fc5e54ee,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &115996759
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158141331}
   - component: {fileID: 158141330}
+  - component: {fileID: 158141332}
   m_Layer: 8
   m_Name: Bone_Foil_02
   m_TagString: Untagged
@@ -813,6 +1028,23 @@ Transform:
   m_Father: {fileID: 1372814369}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &158141332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158141329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &180018582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1824,7 @@ GameObject:
   - component: {fileID: 342996568}
   - component: {fileID: 342996570}
   - component: {fileID: 342996569}
+  - component: {fileID: 342996571}
   m_Layer: 8
   m_Name: joint1.5
   m_TagString: Foil
@@ -1644,6 +1877,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &342996571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342996567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &345237480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1905,7 @@ GameObject:
   - component: {fileID: 345237481}
   - component: {fileID: 345237484}
   - component: {fileID: 345237483}
+  - component: {fileID: 345237482}
   m_Layer: 8
   m_Name: joint2.5
   m_TagString: Untagged
@@ -1677,6 +1928,23 @@ Transform:
   m_Father: {fileID: 158141331}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &345237482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345237480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &345237483
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2514,6 +2782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431771572}
   - component: {fileID: 431771571}
+  - component: {fileID: 431771573}
   m_Layer: 8
   m_Name: Bone_Foil_09
   m_TagString: Untagged
@@ -2556,6 +2825,23 @@ Transform:
   m_Father: {fileID: 727207660}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &431771573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431771570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &436934559
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 494210890}
   - component: {fileID: 494210889}
+  - component: {fileID: 494210891}
   m_Layer: 8
   m_Name: Bone_Foil_05
   m_TagString: Untagged
@@ -3390,6 +3677,23 @@ Transform:
   m_Father: {fileID: 1074660437}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &494210891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494210888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &508498187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3400,6 +3704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 508498188}
   - component: {fileID: 508498189}
+  - component: {fileID: 508498190}
   m_Layer: 8
   m_Name: Bone_Foil_04
   m_TagString: Foil
@@ -3442,6 +3747,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &508498190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508498187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &517705609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,6 +3803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 532517232}
+  - component: {fileID: 532517233}
   m_Layer: 8
   m_Name: tip
   m_TagString: Untagged
@@ -3502,6 +3825,23 @@ Transform:
   m_Father: {fileID: 1142269940}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &532517233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532517231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &536237714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3817,6 +4157,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558988863}
   - component: {fileID: 558988864}
+  - component: {fileID: 558988865}
   m_Layer: 8
   m_Name: Bone_Foil_01
   m_TagString: Foil
@@ -3859,6 +4200,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &558988865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558988862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &566660951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4157,6 +4515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 606988168}
   - component: {fileID: 606988167}
+  - component: {fileID: 606988169}
   m_Layer: 8
   m_Name: Bone_Foil_04
   m_TagString: Untagged
@@ -4199,6 +4558,23 @@ Transform:
   m_Father: {fileID: 667366449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &606988169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606988166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &612167870
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,6 +4745,7 @@ GameObject:
   - component: {fileID: 667366449}
   - component: {fileID: 667366452}
   - component: {fileID: 667366451}
+  - component: {fileID: 667366450}
   m_Layer: 8
   m_Name: joint3.5
   m_TagString: Untagged
@@ -4391,6 +4768,23 @@ Transform:
   m_Father: {fileID: 1082908927}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667366450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667366448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &667366451
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4807,6 +5201,7 @@ GameObject:
   - component: {fileID: 727207660}
   - component: {fileID: 727207659}
   - component: {fileID: 727207658}
+  - component: {fileID: 727207657}
   m_Layer: 8
   m_Name: joint8.5
   m_TagString: Untagged
@@ -4814,6 +5209,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &727207657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727207656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &727207658
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5252,6 +5664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 802499736}
   - component: {fileID: 802499737}
+  - component: {fileID: 802499738}
   m_Layer: 8
   m_Name: Bone_Foil_07
   m_TagString: Foil
@@ -5293,6 +5706,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &802499738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802499735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &809499212
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,6 +5860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 810551851}
   - component: {fileID: 810551852}
+  - component: {fileID: 810551853}
   m_Layer: 8
   m_Name: Bone_Foil_05
   m_TagString: Foil
@@ -5472,6 +5903,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &810551853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810551850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &862981203
 GameObject:
   m_ObjectHideFlags: 0
@@ -5617,6 +6065,7 @@ GameObject:
   - component: {fileID: 887145238}
   - component: {fileID: 887145240}
   - component: {fileID: 887145239}
+  - component: {fileID: 887145241}
   m_Layer: 8
   m_Name: joint3.5
   m_TagString: Foil
@@ -5669,6 +6118,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &887145241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887145237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &887949772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5877,6 +6343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 930395121}
   - component: {fileID: 930395120}
+  - component: {fileID: 930395122}
   m_Layer: 8
   m_Name: Bone_Foil_08
   m_TagString: Untagged
@@ -5919,6 +6386,23 @@ Transform:
   m_Father: {fileID: 1024077843}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &930395122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930395119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &958396012
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,6 +6858,7 @@ GameObject:
   - component: {fileID: 1024077843}
   - component: {fileID: 1024077846}
   - component: {fileID: 1024077845}
+  - component: {fileID: 1024077844}
   m_Layer: 8
   m_Name: join7.5
   m_TagString: Untagged
@@ -6389,13 +6874,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024077842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1004684, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1004684, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 930395121}
   m_Father: {fileID: 1191257929}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1024077844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024077842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &1024077845
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6472,6 +6974,7 @@ GameObject:
   - component: {fileID: 1052198171}
   - component: {fileID: 1052198170}
   - component: {fileID: 1052198169}
+  - component: {fileID: 1052198172}
   m_Layer: 8
   m_Name: joint8.5
   m_TagString: Foil
@@ -6524,6 +7027,23 @@ Transform:
   m_Father: {fileID: 1267040714}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1052198172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052198168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1064912324
 GameObject:
   m_ObjectHideFlags: 0
@@ -6756,6 +7276,7 @@ GameObject:
   - component: {fileID: 1074660437}
   - component: {fileID: 1074660440}
   - component: {fileID: 1074660439}
+  - component: {fileID: 1074660438}
   m_Layer: 8
   m_Name: joint4.5
   m_TagString: Untagged
@@ -6771,13 +7292,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074660436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09911238, y: 0, z: 0}
+  m_LocalPosition: {x: -0.09911238, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 494210890}
   m_Father: {fileID: 606988168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074660438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074660436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &1074660439
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6818,6 +7356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1082908927}
   - component: {fileID: 1082908926}
+  - component: {fileID: 1082908928}
   m_Layer: 8
   m_Name: Bone_Foil_03
   m_TagString: Untagged
@@ -6859,6 +7398,23 @@ Transform:
   m_Father: {fileID: 345237481}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1082908928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082908925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &1082992163
 GameObject:
   m_ObjectHideFlags: 0
@@ -7226,6 +7782,7 @@ GameObject:
   - component: {fileID: 1142269940}
   - component: {fileID: 1142269939}
   - component: {fileID: 1142269938}
+  - component: {fileID: 1142269937}
   m_Layer: 8
   m_Name: joint9.5
   m_TagString: Untagged
@@ -7233,6 +7790,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1142269937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142269936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &1142269938
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7390,6 +7964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1191257929}
   - component: {fileID: 1191257930}
+  - component: {fileID: 1191257931}
   m_Layer: 8
   m_Name: Bone_Foil_07
   m_TagString: Untagged
@@ -7431,6 +8006,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &1191257931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191257928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &1212286803
 GameObject:
   m_ObjectHideFlags: 0
@@ -7442,6 +8034,7 @@ GameObject:
   - component: {fileID: 1212286804}
   - component: {fileID: 1212286806}
   - component: {fileID: 1212286805}
+  - component: {fileID: 1212286807}
   m_Layer: 8
   m_Name: joint2.5
   m_TagString: Foil
@@ -7494,6 +8087,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &1212286807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212286803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1238140997
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,6 +8113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1238140998}
+  - component: {fileID: 1238140999}
   m_Layer: 8
   m_Name: Bone_Foil_Hilt
   m_TagString: Foil
@@ -7525,6 +8136,23 @@ Transform:
   m_Father: {fileID: 109807279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238140999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238140997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1267040712
 GameObject:
   m_ObjectHideFlags: 0
@@ -7535,6 +8163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267040714}
   - component: {fileID: 1267040713}
+  - component: {fileID: 1267040715}
   m_Layer: 8
   m_Name: Bone_Foil_08
   m_TagString: Foil
@@ -7577,6 +8206,23 @@ Transform:
   m_Father: {fileID: 1989789094}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1267040715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267040712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1277252904
 GameObject:
   m_ObjectHideFlags: 0
@@ -7587,6 +8233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1277252906}
   - component: {fileID: 1277252905}
+  - component: {fileID: 1277252907}
   m_Layer: 8
   m_Name: Bone_Foil_06
   m_TagString: Untagged
@@ -7629,6 +8276,23 @@ Transform:
   m_Father: {fileID: 1820818264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277252907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277252904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &1311869515
 GameObject:
   m_ObjectHideFlags: 0
@@ -8376,6 +9040,7 @@ GameObject:
   - component: {fileID: 1372814369}
   - component: {fileID: 1372814372}
   - component: {fileID: 1372814371}
+  - component: {fileID: 1372814370}
   m_Layer: 8
   m_Name: joint1.5
   m_TagString: Untagged
@@ -8398,6 +9063,23 @@ Transform:
   m_Father: {fileID: 1391596564}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1372814370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372814368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &1372814371
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8557,6 +9239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391596564}
   - component: {fileID: 1391596563}
+  - component: {fileID: 1391596565}
   m_Layer: 8
   m_Name: Bone_Foil_01
   m_TagString: Untagged
@@ -8592,13 +9275,30 @@ Transform:
   m_GameObject: {fileID: 1391596562}
   m_LocalRotation: {x: 0.0000002533198, y: -0.00000023096793, z: 0.00000026822096,
     w: 1}
-  m_LocalPosition: {x: -0.17420518, y: 0, z: 0}
+  m_LocalPosition: {x: -0.17420518, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1372814369}
   m_Father: {fileID: 1634116663}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1391596565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391596562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &1399488174
 GameObject:
   m_ObjectHideFlags: 0
@@ -9143,6 +9843,7 @@ GameObject:
   - component: {fileID: 1530950234}
   - component: {fileID: 1530950233}
   - component: {fileID: 1530950232}
+  - component: {fileID: 1530950235}
   m_Layer: 8
   m_Name: joint9.5
   m_TagString: FoilTip
@@ -9195,6 +9896,23 @@ Transform:
   m_Father: {fileID: 1683548176}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1530950235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530950231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1542829162
 GameObject:
   m_ObjectHideFlags: 0
@@ -9435,6 +10153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1585113931}
+  - component: {fileID: 1585113932}
   m_Layer: 8
   m_Name: tip
   m_TagString: FoilTip
@@ -9456,6 +10175,23 @@ Transform:
   m_Father: {fileID: 1530950234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585113932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585113930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1588695496
 GameObject:
   m_ObjectHideFlags: 0
@@ -9709,6 +10445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1634116663}
+  - component: {fileID: 1634116664}
   m_Layer: 8
   m_Name: Bone_Foil_Hilt
   m_TagString: Untagged
@@ -9731,6 +10468,23 @@ Transform:
   m_Father: {fileID: 99702677}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1634116664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634116662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!1 &1639077632
 GameObject:
   m_ObjectHideFlags: 0
@@ -9813,6 +10567,7 @@ GameObject:
   - component: {fileID: 1643485780}
   - component: {fileID: 1643485783}
   - component: {fileID: 1643485782}
+  - component: {fileID: 1643485781}
   m_Layer: 8
   m_Name: joint6.7
   m_TagString: Untagged
@@ -9828,13 +10583,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1643485779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09791293, y: 0, z: 0}
+  m_LocalPosition: {x: -0.09791293, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1191257929}
   m_Father: {fileID: 1277252906}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1643485781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643485779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &1643485782
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9875,6 +10647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1683548176}
   - component: {fileID: 1683548175}
+  - component: {fileID: 1683548177}
   m_Layer: 8
   m_Name: Bone_Foil_09
   m_TagString: Foil
@@ -9917,6 +10690,23 @@ Transform:
   m_Father: {fileID: 1052198171}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1683548177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683548174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1694463825
 GameObject:
   m_ObjectHideFlags: 0
@@ -10062,6 +10852,7 @@ GameObject:
   - component: {fileID: 1725982598}
   - component: {fileID: 1725982597}
   - component: {fileID: 1725982599}
+  - component: {fileID: 1725982600}
   m_Layer: 0
   m_Name: XRRig
   m_TagString: Untagged
@@ -10182,6 +10973,103 @@ MonoBehaviour:
   RFoil: {fileID: 99702676}
   LControl: {fileID: 8758423527331693187}
   RControl: {fileID: 4283425763137707647}
+--- !u!82 &1725982600
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725982592}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7435389763673102795, guid: b4aa193610d7ff849973b5e1fc5e54ee,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 1faf8e92ed4a38b45a16a30933b21a40, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1728657555
 GameObject:
   m_ObjectHideFlags: 0
@@ -10423,6 +11311,7 @@ GameObject:
   - component: {fileID: 1728883719}
   - component: {fileID: 1728883721}
   - component: {fileID: 1728883720}
+  - component: {fileID: 1728883722}
   m_Layer: 8
   m_Name: joint6.7
   m_TagString: Foil
@@ -10475,6 +11364,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &1728883722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728883718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1795957535
 GameObject:
   m_ObjectHideFlags: 0
@@ -10616,6 +11522,7 @@ GameObject:
   - component: {fileID: 1820818264}
   - component: {fileID: 1820818267}
   - component: {fileID: 1820818266}
+  - component: {fileID: 1820818265}
   m_Layer: 8
   m_Name: joint5.5
   m_TagString: Untagged
@@ -10631,13 +11538,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820818263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1024426, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1024426, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1277252906}
   m_Father: {fileID: 494210890}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820818265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820818263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 99702679}
 --- !u!136 &1820818266
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10940,6 +11864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916567122}
   - component: {fileID: 1916567123}
+  - component: {fileID: 1916567124}
   m_Layer: 8
   m_Name: Bone_Foil_03
   m_TagString: Foil
@@ -10981,6 +11906,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &1916567124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916567121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1922620003
 GameObject:
   m_ObjectHideFlags: 0
@@ -11803,6 +12745,7 @@ GameObject:
   - component: {fileID: 1972844807}
   - component: {fileID: 1972844809}
   - component: {fileID: 1972844808}
+  - component: {fileID: 1972844810}
   m_Layer: 8
   m_Name: joint4.5
   m_TagString: Foil
@@ -11855,6 +12798,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &1972844810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972844806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1989789093
 GameObject:
   m_ObjectHideFlags: 0
@@ -11866,6 +12826,7 @@ GameObject:
   - component: {fileID: 1989789094}
   - component: {fileID: 1989789096}
   - component: {fileID: 1989789095}
+  - component: {fileID: 1989789097}
   m_Layer: 8
   m_Name: join7.5
   m_TagString: Foil
@@ -11918,6 +12879,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &1989789097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989789093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &1992692224
 GameObject:
   m_ObjectHideFlags: 0
@@ -12202,6 +13180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106292631}
   - component: {fileID: 2106292632}
+  - component: {fileID: 2106292633}
   m_Layer: 8
   m_Name: Bone_Foil_06
   m_TagString: Foil
@@ -12244,6 +13223,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &2106292633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106292630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &2120018540
 GameObject:
   m_ObjectHideFlags: 0
@@ -12254,6 +13250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2120018541}
   - component: {fileID: 2120018542}
+  - component: {fileID: 2120018543}
   m_Layer: 8
   m_Name: Bone_Foil_02
   m_TagString: Foil
@@ -12296,6 +13293,23 @@ MonoBehaviour:
   springStrength: 2500
   damperStrength: 50
   flexibility: 0.01
+--- !u!114 &2120018543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120018540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foilSounds:
+  - {fileID: 8300000, guid: f884bc28538afb64cb299189c2e05e53, type: 3}
+  - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
+  - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
+  foil: {fileID: 109807280}
 --- !u!1 &2130433319
 GameObject:
   m_ObjectHideFlags: 0
