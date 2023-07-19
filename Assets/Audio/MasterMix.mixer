@@ -28,8 +28,7 @@ AudioMixerGroupController:
   m_Name: FX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 9bd9a4f5bb5c4d748b8341822e2eef44
-  m_Children:
-  - {fileID: -7435389763673102795}
+  m_Children: []
   m_Volume: 9811eaf672dc1e647bbb0e1dcff20b56
   m_Pitch: 63832a4a12b46614cb360e995684d40e
   m_Send: 00000000000000000000000000000000
@@ -71,6 +70,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 9811eaf672dc1e647bbb0e1dcff20b56
     name: FXVol
+  - guid: cacc271273ac52a4a855c69f826d1834
+    name: MasterVol
   - guid: 7d7d4eca3c1ab4149becffba071429b9
     name: MusicVol
   m_AudioMixerGroupViews:
@@ -91,6 +92,7 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 21a223307da308e4589151350be3ad81
   m_Children:
+  - {fileID: -7435389763673102795}
   - {fileID: -6963898115639030758}
   m_Volume: cacc271273ac52a4a855c69f826d1834
   m_Pitch: b3d05c18d1dbba2449457927ad037f61

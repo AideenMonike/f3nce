@@ -10058,9 +10058,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - {m_Target: {fileID: 1493571231}, m_MethodName: PlaySound, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
-          m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
-    m_CallsDirty: 1
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine: }}
 --- !u!1 &1551470478
 GameObject:
   m_ObjectHideFlags: 0
@@ -14119,7 +14117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130753267}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.27, y: 1.51, z: 0}
+  m_LocalPosition: {x: 1, y: 1.51, z: 0}
   m_LocalScale: {x: 0.5, y: 0.05, z: 0.5}
   m_Children:
   - {fileID: 1892171189}
