@@ -442,7 +442,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: f89177dd7aa6086449d1f3f04efb7147, type: 3}
+  m_Texture: {fileID: 2800000, guid: 53b8367203d069b429251de3e3faa36d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -778,7 +778,7 @@ RectTransform:
   - {fileID: 687593318}
   - {fileID: 357641775}
   m_Father: {fileID: 809499213}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 687593319}
   toggleTransition: 1
   graphic: {fileID: 1624416675}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1945977471}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5760,6 +5760,7 @@ RectTransform:
   - {fileID: 1895565914}
   - {fileID: 1795957536}
   - {fileID: 1323348972}
+  - {fileID: 1945977472}
   - {fileID: 1588695497}
   - {fileID: 1188196534}
   - {fileID: 115996760}
@@ -5977,7 +5978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Click on the menu button to toggle the scene menu
+  m_text: Click on the menu button/joystick to toggle the scene menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e254370a7ae2aec41a4166a286eaf092, type: 2}
   m_sharedMaterial: {fileID: -1709388386930241201, guid: e254370a7ae2aec41a4166a286eaf092,
@@ -7905,7 +7906,7 @@ RectTransform:
   - {fileID: 480563199}
   - {fileID: 2037234210}
   m_Father: {fileID: 809499213}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7954,7 +7955,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 480563200}
   toggleTransition: 1
   graphic: {fileID: 1596106462}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1945977471}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -10095,7 +10096,7 @@ RectTransform:
   - {fileID: 2134452241}
   - {fileID: 1922620004}
   m_Father: {fileID: 809499213}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10144,7 +10145,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2134452242}
   toggleTransition: 1
   graphic: {fileID: 232670750}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1945977471}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -10239,7 +10240,7 @@ RectTransform:
   - {fileID: 536237715}
   - {fileID: 307377781}
   m_Father: {fileID: 809499213}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10288,7 +10289,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 536237716}
   toggleTransition: 1
   graphic: {fileID: 707589837}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1945977471}
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -12216,6 +12217,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922620003}
   m_CullTransparentMesh: 0
+--- !u!1 &1945977470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1945977472}
+  - component: {fileID: 1945977471}
+  m_Layer: 0
+  m_Name: anim group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1945977471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945977470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 1
+--- !u!224 &1945977472
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945977470}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 809499213}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0.40000004}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1953028098
 GameObject:
   m_ObjectHideFlags: 0

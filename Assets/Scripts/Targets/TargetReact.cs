@@ -191,7 +191,7 @@ public class TargetReact : MonoBehaviour
         target.transform.localScale = Vector3.zero;
 
         float slideVal = targetSize.x / defTargetSize.x;
-        Score.text = sorts.ScoreCalc(timeScores, slideVal, misses);
+        Score.text = "Score: " + sorts.ScoreCalc(timeScores, slideVal, misses);
 
         string rawAvgTime = sorts.AverageCalc(timeScores).ToString();
         string avgTime = "";
