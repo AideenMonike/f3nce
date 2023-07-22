@@ -9974,7 +9974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_System: {fileID: 1542829166}
+  m_System: {fileID: 0}
   m_TurnAmount: 45
   m_DebounceTime: 0.5
   m_EnableTurnLeftRight: 1
@@ -10019,7 +10019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 0}
-  m_MoveSpeed: 1
+  m_MoveSpeed: 2
   m_EnableStrafe: 1
   m_UseGravity: 1
   m_GravityApplicationMode: 1
@@ -10862,13 +10862,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1725982594}
-  - component: {fileID: 1725982593}
   - component: {fileID: 1725982596}
   - component: {fileID: 1725982595}
-  - component: {fileID: 1725982598}
-  - component: {fileID: 1725982597}
+  - component: {fileID: 1725982593}
   - component: {fileID: 1725982599}
   - component: {fileID: 1725982600}
+  - component: {fileID: 1725982598}
+  - component: {fileID: 1725982597}
+  - component: {fileID: 1725982601}
   m_Layer: 0
   m_Name: XRRig
   m_TagString: Untagged
@@ -10947,14 +10948,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725982592}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LocomotionProvider: {fileID: 1542829164}
+  m_LocomotionProvider: {fileID: 0}
   m_MinHeight: 1
-  m_MaxHeight: 2
+  m_MaxHeight: 2.3
 --- !u!143 &1725982598
 CharacterController:
   m_ObjectHideFlags: 0
@@ -10964,15 +10965,15 @@ CharacterController:
   m_GameObject: {fileID: 1725982592}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.01
-  m_Radius: 0
+  m_Height: 2
+  m_Radius: 0.15
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1725982599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11086,6 +11087,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1725982601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725982592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a9e17e81ec7ed4a86ca675c201c473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1728657555
 GameObject:
   m_ObjectHideFlags: 0
@@ -15380,7 +15393,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7762942050917533565}
-  - component: {fileID: 1449423287385490086}
   m_Layer: 0
   m_Name: spine_03
   m_TagString: Feet
@@ -15388,20 +15400,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1449423287385490086
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449423287385490085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.15
-  m_Height: 0.5
-  m_Direction: 0
-  m_Center: {x: 0.1, y: 0, z: 0}
 --- !u!4 &1479347396542896213
 Transform:
   m_ObjectHideFlags: 0

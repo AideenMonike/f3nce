@@ -9,7 +9,7 @@ TagManager:
   - Left Hand
   - FoilTip
   - Sandbox Objects
-  - Feet
+  - FoilHilt
   layers:
   - Default
   - TransparentFX

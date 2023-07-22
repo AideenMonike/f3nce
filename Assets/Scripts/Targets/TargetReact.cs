@@ -21,6 +21,7 @@ public class TargetReact : MonoBehaviour
 
     public GameObject returnLine;
     public AudioSource hitSound;
+    public GameObject menu;
 
     // Start is called before the first frame update
     // Sets origin of the target
@@ -38,20 +39,28 @@ public class TargetReact : MonoBehaviour
     // Stops all coroutines when the game isn't running and updates the scoreboard
     void FixedUpdate()
     {
+        menu.SetActive(!gameStarted);
         UpdateTargetScoreboard();
     }
 
     public void ChangeTargetSize(float size)
     {
-        targetSize = defTargetSize * Mathf.Clamp(size, 0.01f, 1f);
-        target.transform.localScale = targetSize;
-        missZone.transform.localScale = defTargetSize / size;
-        Debug.Log(targetSize);  
+        if (!gameStarted)
+        {
+            targetSize = defTargetSize * Mathf.Clamp(size, 0.01f, 1f);
+            target.transform.localScale = targetSize;
+            missZone.transform.localScale = defTargetSize / size;
+            Debug.Log(targetSize);  
+        }
+        
     }
 
     public void ChangeTargetsRound(int num)
     {
-        targetTries = num + 1;
+        if (!gameStarted)
+        {
+            targetTries = num + 1;
+        }
     }
 
     // Updates the target board to contain the specified amount of targets to hit in one round
@@ -76,10 +85,7 @@ public class TargetReact : MonoBehaviour
             Misses.text = "Misses: " + misses;
         }
         
-    }
-
-    // OnTrigger detects when a trigger collider collides with the target
-    
+    }    
 
     // Method to process collisions. Moreso for modularisation and an entrypoint for if a CollisionEnter method is added.
     public void WhenHit(Collider col)
@@ -94,7 +100,7 @@ public class TargetReact : MonoBehaviour
             else
             {
                 targetHit = true;
-                
+                hitSound.PlayOneShot(hitSound.clip);
             }
         }
     }
@@ -134,14 +140,15 @@ public class TargetReact : MonoBehaviour
             float timer = Rand.Range(0.5f, timeBetween);
             target.transform.localScale = Vector3.zero;
             
-            do
+            float timeBeforeTel = timer;
+            while (timeBeforeTel > 0)
             {
-                if (foilReset)
-                {
-                    returnLine.SetActive(true);
-                }  
-                yield return new WaitForSeconds(timer);
-            } while (foilReset);
+                //Debug.Log("passed");
+                timeBeforeTel = TimeReset(timer, timeBeforeTel);
+                timeBeforeTel -= Time.deltaTime;
+                yield return null;
+            }
+            
             returnLine.SetActive(false);
 
             target.transform.localScale = targetSize;
@@ -186,7 +193,13 @@ public class TargetReact : MonoBehaviour
         float slideVal = targetSize.x / defTargetSize.x;
         Score.text = sorts.ScoreCalc(timeScores, slideVal, misses);
 
-        AvgReactTime.text = sorts.AverageCalc(timeScores).ToString();
+        string rawAvgTime = sorts.AverageCalc(timeScores).ToString();
+        string avgTime = "";
+        for (int j = 0; j <= 3; j++)
+        {
+            avgTime = avgTime + rawAvgTime[j];
+        }
+        AvgReactTime.text = "Avg Time: " + avgTime;
         yield return new WaitForSeconds(5);
 
         target.transform.position = origin;
@@ -195,9 +208,23 @@ public class TargetReact : MonoBehaviour
         targetHit = false;
     }
 
-    // Method to teleport object and ensures the target doesn't teleport into the player or their foil.
+    // Method to teleport object 
     private void RandomTeleportObject(GameObject obj, Vector3 origin)
     {
         obj.transform.position = origin + (0.3f * Rand.insideUnitSphere);
+    }
+
+    private float TimeReset(float originalTime, float currentTime)
+    {
+        if (foilReset)
+        {
+            returnLine.SetActive(true);
+            return originalTime;
+        }
+        else
+        {
+            returnLine.SetActive(false);
+            return currentTime;
+        }
     }
 }

@@ -37,7 +37,7 @@ public class HomeMenu : MonoBehaviour
     }
     public void Exit()
     {
-
+        Application.Quit();
     }
     public void SettingsOpen()
     {
@@ -51,10 +51,6 @@ public class HomeMenu : MonoBehaviour
         hand = Mathf.Abs(PlayerPrefs.GetInt("Main Hand") - 1);
         PlayerPrefs.SetInt("Main Hand", hand);
         Debug.Log(PlayerPrefs.GetInt("Main Hand"));
-    }
-    public void CalibrateHeight()
-    {
-
     }
     public void BackToMenu()
     {

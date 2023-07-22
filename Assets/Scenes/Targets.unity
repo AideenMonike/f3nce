@@ -4892,7 +4892,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 827814596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725cbfbe2891efa499fe8e1f9e0ea5a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8be4a75d3c3e76d46a010d615ac2dd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enter:
@@ -4938,9 +4938,10 @@ GameObject:
   m_Component:
   - component: {fileID: 839698513}
   - component: {fileID: 839698514}
+  - component: {fileID: 839698515}
   m_Layer: 8
   m_Name: Bone_Foil_Hilt
-  m_TagString: Foil
+  m_TagString: FoilHilt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4977,6 +4978,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
   - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
   foil: {fileID: 1493571230}
+--- !u!136 &839698515
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839698512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.01
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &845959111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6663,9 +6678,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1037338766}
   - component: {fileID: 1037338767}
+  - component: {fileID: 1037338768}
   m_Layer: 8
   m_Name: Bone_Foil_Hilt
-  m_TagString: Foil
+  m_TagString: FoilHilt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6702,6 +6718,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 36294b2983c591f4e8daf734b2addeb7, type: 3}
   - {fileID: 8300000, guid: f08f0387fd0941341805012bfc77bd84, type: 3}
   foil: {fileID: 148859423}
+--- !u!136 &1037338768
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037338765}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.01
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1045535745
 GameObject:
   m_ObjectHideFlags: 0
@@ -8089,7 +8119,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time: 0:00'
+  m_text: -----
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e254370a7ae2aec41a4166a286eaf092, type: 2}
   m_sharedMaterial: {fileID: -1709388386930241201, guid: e254370a7ae2aec41a4166a286eaf092,
@@ -8117,8 +8147,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9902,8 +9932,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493571229}
-  - component: {fileID: 1493571232}
-  - component: {fileID: 1493571231}
   - component: {fileID: 1493571230}
   m_Layer: 8
   m_Name: LFoil
@@ -10025,40 +10053,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1493571231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493571228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e73b373aa2a9574bb4847460f2b2f32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foilSounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  foil: {fileID: 1493571230}
---- !u!114 &1493571232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493571228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f09d09e3c0565c84b861f198ff75a469, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onCol:
-    m_PersistentCalls:
-      m_Calls:
-      - {m_Target: {fileID: 1493571231}, m_MethodName: PlaySound, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0},
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine: }}
 --- !u!1 &1551470478
 GameObject:
   m_ObjectHideFlags: 0
@@ -11771,7 +11765,7 @@ GameObject:
   - component: {fileID: 1816431429}
   m_Layer: 0
   m_Name: XRRig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12336,7 +12330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1892171188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 725cbfbe2891efa499fe8e1f9e0ea5a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8be4a75d3c3e76d46a010d615ac2dd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enter:
@@ -14176,6 +14170,7 @@ MonoBehaviour:
   foilReset: 0
   returnLine: {fileID: 127770595}
   hitSound: {fileID: 2130753273}
+  menu: {fileID: 1551470478}
 --- !u!82 &2130753273
 AudioSource:
   m_ObjectHideFlags: 0
