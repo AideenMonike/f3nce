@@ -380,22 +380,11 @@
                 },
                 {
                     "name": "",
-                    "id": "40de5bcd-fab5-433c-b632-3d03992a7af6",
-                    "path": "<OculusTouchController>{LeftHand}/thumbstickClicked",
+                    "id": "309b1df8-70d1-451e-a852-73a1b58ce1c3",
+                    "path": "<XRController>{LeftHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "309b1df8-70d1-451e-a852-73a1b58ce1c3",
-                    "path": "<XRController>{LeftHand}/menuButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Generic XR Controller",
                     "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
