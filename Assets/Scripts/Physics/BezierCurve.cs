@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/*"BezierCurve" script is responsible for calculating positions along a quadratic Bezier curve and applying the 
+calculated positions to the Foil bones (Transform components) in the Unity scene. The script also handles tip inertia 
+based on the position, velocity, and acceleration of the "tip" of the Foil*/
+
 public class BezierCurve : MonoBehaviour
 {
     public BezierEquationsCalculations bez;
@@ -28,6 +32,9 @@ public class BezierCurve : MonoBehaviour
 
     public float velThreshold;
 
+/*"Start" script initializes various variables, such as previous positions and velocities of 
+the "tip" and "_base" game objects, as well as the positions array for the Foil bones.*/
+
     public void Start()
     {
         // Sets all the variables for the arrays used
@@ -52,7 +59,8 @@ public class BezierCurve : MonoBehaviour
 
         bez = new BezierEquationsCalculations();
     }
-
+    /*"Update" script calls several other methods to perform the calculations for velocity,
+     acceleration, control point, tip inertia, and position of the bones along the Bezier curve.*/
     public void Update()
     {
         CalcPointVelocities();
@@ -82,7 +90,8 @@ public class BezierCurve : MonoBehaviour
         baseVel = (_base.transform.position - basePrevPos) / Time.deltaTime;
         lerpMult = Mathf.Abs(tipVel.magnitude) / 100;
     }
-
+    /*"TipInertia" calculates the acceleration of the "tip" and "_base" game objects and determines if the "foil" should
+     bend or not based on certain conditions*/
     private void TipInertia()
     {
         // Acceleration Calculations
@@ -111,7 +120,8 @@ public class BezierCurve : MonoBehaviour
         prevTipAccel = tipAccel;
         prevBaseAccel = baseAccel;
     }
-
+    /*"LocalZMultiplier" calculates a multiplier based on the positions of the "tip" game object in the 
+    global and local space of the GameObject and helps determine if the "foil" should bend or not*/
     private float LocalZMultiplier(Vector3 statA, Vector3 b)
     {
         float bZ = Mathf.Pow(b.z, 2);

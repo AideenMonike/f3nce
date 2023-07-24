@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* "FoilTrackingTest"  simulates tracking the movement of a foil using a
+ Rigidbody component. The script calculates the velocity of the foil and 
+ applies it to the attached Rigidbody to move the Foil accordingly*/
 public class FoilTrackingTest : MonoBehaviour
 {
     private Rigidbody rb;

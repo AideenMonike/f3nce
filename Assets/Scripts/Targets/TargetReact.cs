@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine.Audio;
 using Rand = UnityEngine.Random;
 
+/* "TargetReact" script controls the behavior of target objects in a reactive 
+manner. It manages target interactions, scoring, timers, teleportation 
+of targets, and UI updates*/
 public class TargetReact : MonoBehaviour
 {
     public GameObject target, missZone;
@@ -43,6 +46,9 @@ public class TargetReact : MonoBehaviour
         UpdateTargetScoreboard();
     }
 
+    /*"ChangeTargetSize" function changes the size of the target.
+        Parameters:
+        size: The new size of the target*/
     public void ChangeTargetSize(float size)
     {
         if (!gameStarted)
@@ -55,6 +61,9 @@ public class TargetReact : MonoBehaviour
         
     }
 
+    /*"ChangeTargetsRound" function changes the number of targets for a single round.
+        Parameters:
+        num: The new number of targets*/
     public void ChangeTargetsRound(int num)
     {
         if (!gameStarted)
@@ -104,7 +113,8 @@ public class TargetReact : MonoBehaviour
             }
         }
     }
-
+    /*"MissTarget" function is called when a collider (the "Foil" object) misses the target.
+         It increments the number of misses if the target is not hit within the time window.*/
     public void MissTarget(Collider col)
     {
         if (gameStarted && !targetHit && missWindow)
@@ -130,7 +140,12 @@ public class TargetReact : MonoBehaviour
         StartCoroutine(ReactTimer(timeToGo, timeBetweenAppearance));
     }
     
-    // Coroutine method that executes the gamemode
+    /*"ReactTimer"" coroutine method executes the reactive game mode. It manages 
+     the target appearance, teleportation, and scoring for the reactive triggers/actions
+        Parameters:
+            timeTeleport: The time (in seconds) for targets to teleport randomly.
+            timeBetween: The time (in seconds) between the appearance of consecutive targets.*/
+ 
     private IEnumerator ReactTimer(float timeTeleport, float timeBetween)
     {
         int i = 0;
@@ -208,7 +223,11 @@ public class TargetReact : MonoBehaviour
         targetHit = false;
     }
 
-    // Method to teleport object 
+    /*This method teleports the target object to a random position around the specified origin.
+        Parameters:
+            obj: The target object to be teleported.
+            origin: The point of origin around which the target will be teleported.
+        Returns: The updated time value after resetting.*/
     private void RandomTeleportObject(GameObject obj, Vector3 origin)
     {
         obj.transform.position = origin + (0.3f * Rand.insideUnitSphere);
