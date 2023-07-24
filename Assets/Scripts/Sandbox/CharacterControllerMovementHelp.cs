@@ -2,6 +2,11 @@
 using Unity.XR.CoreUtils;
 using UnityEngine;
 
+
+/*"CharacterControllerMovementHelp" script is responsible for updating the height and center of the CharacterController
+ component based on the position of the camera.
+ It ensures that the character controller's height and center are adjusted according to the camera's 
+ position in the XR (Extended Reality) space.*/
 public class CharacterControllerMovementHelp : MonoBehaviour
 {
     private XROrigin xrRig;

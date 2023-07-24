@@ -5,24 +5,27 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/*"TargetBehaviours" script controls the behavior of target objects.
+ It manages target interactions, scoring, timers, and teleportation
+ of the targets within a specified area */
 public class TargetBehaviours : MonoBehaviour
 {
-    private sorts Sort = new sorts();
-    private Vector3 foilVel;
-    private Vector3 prevFoilVel;
+    private sorts Sort = new sorts(); // class to sort the scores array.
+    private Vector3 foilVel; // variable representing the velocity of the "Foil" object
+    private Vector3 prevFoilVel; //variable holding the previous position of the "Foil" object. It is used to calculate the velocity of the "Foil" object based on its position change over time.
     [SerializeField] private Transform foilPos;
     private bool timeFinished = true;
-    public TextMeshProUGUI timerText;
-    public float GameTime;
+    public TextMeshProUGUI timerText; // allows updating and displaying the timer countdown during the game.
+    public float GameTime; // sets the total duration of the game.
     private float seconds, minutes;
     private string secondsText = "00";
-    public float disappearTimer;
+    public float disappearTimer; //It sets the duration for targets to reappear after being hit.
     public Vector3 origin;
     public float spawnRadius;
-    public bool targetHit;
+    public bool targetHit; //c bool variable indicating whether the target has been hit by the "Foil" object.
     private int score;
     private int[] scores = new int[4];
-    public TextMeshProUGUI ScoreText, SavesText1, SavesText2, SavesText3;
+    public TextMeshProUGUI ScoreText, SavesText1, SavesText2, SavesText3; //he UI text elements for displaying scores. They allow updating and displaying the player's score and the top three scores.
     private string SaveHold;
     [Range(0, 3)]
     private int scoreIncrement = 0;
@@ -39,6 +42,7 @@ public class TargetBehaviours : MonoBehaviour
         }
     }
 
+/*"OnTriggerEnter" detects if the "Foil" object enters the trigger collider of the targe*/
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Foil"  && foilVel.magnitude >= 5)
@@ -59,6 +63,9 @@ public class TargetBehaviours : MonoBehaviour
             }
         }
     }
+
+    /*"OnTriggerStay" is called while a collider is inside a trigger.
+     It helps manage the target interactions if the "Foil" object remains inside the trigger collider.*/
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Foil")
@@ -67,6 +74,8 @@ public class TargetBehaviours : MonoBehaviour
         }
     }
 
+
+/*"Update" script updates the score, timer, and "Foil" velocity.*/
     private void Update()
     {
         ScoreText.text = "Score: " + Convert.ToString(score);
@@ -81,6 +90,9 @@ public class TargetBehaviours : MonoBehaviour
         prevFoilVel = foilPos.position;
     }
 
+
+    /*"GameTimer" function is a coroutine that runs the game timer countdown.
+        It handles the game timer logic and updates the timer UI.*/
     private IEnumerator GameTimer(float time)
     {
         while (!timeFinished)
@@ -112,7 +124,7 @@ public class TargetBehaviours : MonoBehaviour
             SortScore(score);
         }
     }
-
+/*"SortScore" function sorts the player's score and updates the top three scores.*/
     void SortScore(int lastScore)
     {
         scores[scoreIncrement] = lastScore;
@@ -146,6 +158,12 @@ public class TargetBehaviours : MonoBehaviour
         }
     }
 
+
+    /*"TeleportTarget" function teleports the target to a random position within a
+    specified radius around a given point.
+        Parameters:
+            O: The origin point for teleportation.
+            radius: The maximum distance from the origin where the target can be teleported.*/
     private void TeleportTarget(Vector3 PO, float radius)
     {
         if (!timeFinished)
@@ -154,6 +172,8 @@ public class TargetBehaviours : MonoBehaviour
         } 
     }
 
+    /*"TargetTimer" manages the timer for target teleportation after a specified time, allowing
+     the target to reappear after being hit.*/
     private IEnumerator TargetTimer(float time)
     {
         if (!timeFinished)

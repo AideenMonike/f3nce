@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*"CubeFly" controls the movement of a cube towards a target GameObject using physics-based forces */
 public class CubeFly : MonoBehaviour
 {
     private Rigidbody rb;

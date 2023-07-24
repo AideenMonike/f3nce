@@ -133,6 +133,7 @@ PlayerSettings:
   bundleVersion: 0.1
   preloadedAssets:
   - {fileID: 0}
+  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -433,12 +434,12 @@ PlayerSettings:
     m_Automatic: 1
   m_BuildTargetVRSettings:
   - m_BuildTarget: Standalone
-    m_Enabled: 1
+    m_Enabled: 0
     m_Devices:
     - OpenVR
     - Oculus
   - m_BuildTarget: tvOS
-    m_Enabled: 1
+    m_Enabled: 0
     m_Devices:
     - OpenVR
   openGLRequireES31: 0

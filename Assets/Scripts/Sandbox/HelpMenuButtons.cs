@@ -2,12 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*"HelpMenuButtons" script is responsible for handling various button interactions in a help menu. 
+It includes functions to navigate between different pages of the menu, spawn objects (cube and ball), 
+delete objects with a Sandbox tag, and swap between different maps (hall1, hall2, hall3). */
+
 public class HelpMenuButtons : MonoBehaviour
 {
     public GameObject pg1, pg2, pg3;
     public GameObject cubePrefab, ballPrefab;
     public GameObject hall1, hall2, hall3;
     [SerializeField] private int mapIncrementer = 0;
+
+    /*These ToPageXXX functions are called when the user wants to navigate to page one of the help menu.
+     They sets the active status of pg1, pg2, and pg3 GameObjects to control which page
+     is visible. 
+     E.g. In the case the user chooses ToPageOne, it sets pg1 to active and pg2, pg3 to inactive, ensuring that
+     page one is shown while the other pages are hidden.*/
 
     public void ToPageOne()
     {
@@ -44,7 +54,7 @@ public class HelpMenuButtons : MonoBehaviour
             Destroy(obj);
         }
     }
-
+    /*"SwapMaps" function is called when the user wants to swap between different maps (hall1, hall2, hall3)*/
     public void SwapMaps()
     {
         mapIncrementer++;
