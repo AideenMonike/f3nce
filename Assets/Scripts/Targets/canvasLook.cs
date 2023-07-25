@@ -20,7 +20,7 @@ public class canvasLook : MonoBehaviour
         }
         if (moveToHead)
         {
-            canvas.transform.position = transform.TransformPoint(transform.InverseTransformPoint(new Vector3 (head.position.x + 0.5f, head.position.y, head.position.z)));
+            canvas.transform.position = transform.TransformPoint(transform.InverseTransformPoint(new Vector3 (head.position.x + 1f, head.position.y, head.position.z)));
         }
     }
 }
