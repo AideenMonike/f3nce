@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*This code defines a VRRig system that maps the positions and rotations 
+ of VR targets (e.g., head and hands) to rig targets (e.g., camera and hand
+ controllers) in a VR environment. The VRRig ensures that the camera and hand 
+ controllers follow the VR targets while applying any specified offsets to their 
+ positions and rotations.*/
+ 
 [System.Serializable]
 public class VRMap
 {

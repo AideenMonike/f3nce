@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*"VRFootIK" is attached to a game object with an Animator component. 
+ It is used to implement inverse kinematics (IK) for the feet of a character 
+ in a virtual reality environment. IK is used to make the character's feet 
+ align with the ground surface, adjusting their positions and rotations dynamically 
+ based on the terrain.*/
 public class VRFootIK : MonoBehaviour
 {
     private Animator animator;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
+/*"VRAnimation" script is attached to a game object in a virtual reality environment. 
+ It is used to animate the game object's animator based on the movement of the VR headset.*/
 public class VRAnimation : MonoBehaviour
 {
     public float speedThreshold = 0.1f;

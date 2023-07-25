@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
+/*"HandPresence" script is used to get information about 
+ connected input devices, specifically XR (VR/AR) devices. */
 public class HandPresence : MonoBehaviour
 {
     //i have committed :)
